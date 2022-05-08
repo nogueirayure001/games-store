@@ -72,9 +72,9 @@ export const Stats = styled.div`
 
 export const Rating = styled.div`
   display: flex;
-  justify-content: flex-end;
+  align-items: center;
   width: auto;
-  border-radius: 8px;
+  height: auto;
 `;
 
 export const RatingIcon = styled(StarIcon)`
