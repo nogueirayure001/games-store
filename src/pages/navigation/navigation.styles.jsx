@@ -101,6 +101,7 @@ export const MenuToggler = styled.button`
   width: 100%;
   padding: 3.2px 0;
   background-color: #151515;
+  z-index: 9999;
 
   &:hover {
     opacity: 0.9;
@@ -109,4 +110,9 @@ export const MenuToggler = styled.button`
   @media screen and (min-width: 1000px) {
     display: none;
   }
+`;
+
+export const Main = styled.main`
+  flex: 1 0 auto;
+  display: flex;
 `;

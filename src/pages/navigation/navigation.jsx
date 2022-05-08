@@ -9,6 +9,7 @@ import {
   Logo,
   MenuTogglerIcon,
   MenuToggler,
+  Main,
 } from "./navigation.styles";
 
 function Navigation() {
@@ -34,9 +35,9 @@ function Navigation() {
         </MenuToggler>
       </SiteHeader>
 
-      <main>
+      <Main>
         <Outlet />
-      </main>
+      </Main>
     </Fragment>
   );
 }
