@@ -15,6 +15,7 @@ export const Title = styled.h2`
   text-align: center;
   font-family: "Koulen", cursive;
   font-size: 1.2rem;
+  line-height: 1.5rem;
   font-weight: 600;
   letter-spacing: 1.5px;
   text-transform: uppercase;

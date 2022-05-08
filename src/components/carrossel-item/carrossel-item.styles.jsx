@@ -7,19 +7,12 @@ export const CarrosselItemContainer = styled.div`
   position: relative;
   width: 100%;
   height: 0;
-  padding-top: ${({ heightRatio }) => (heightRatio ? heightRatio : "70%")};
+  padding-top: ${({ heightRatio }) => (heightRatio ? heightRatio : "66%")};
   ${({ backgroundImage }) =>
     backgroundImage && `background-image: url(${backgroundImage});`}
   background-size: cover;
   background-color: hsla(0, 0%, 0%, 0.9);
   scroll-snap-align: center;
-`;
-
-export const DescriptionContainer = styled.div`
-  width: 100%;
-  height: 0;
-  overflow: hidden;
-  transition: height 400ms ease;
 `;
 
 export const ItemInfo = styled.div`
@@ -30,19 +23,24 @@ export const ItemInfo = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  height: 3.2rem;
   padding: 1rem 2rem;
   text-align: center;
   background-color: hsla(0, 0%, 0%, 0.6);
   border-radius: 8px 8px 0 0;
+  transition: height 400ms ease;
 
   &:hover {
-    ${DescriptionContainer} {
-      height: 5rem;
-    }
+    height: 10.72rem;
   }
 
   @media screen and (min-width: 768px) {
+    height: 4.2rem;
     padding: 1.5rem 4rem;
+
+    &:hover {
+      height: 12.32rem;
+    }
   }
 `;
 
@@ -50,6 +48,7 @@ export const Title = styled.h3`
   width: 100%;
   font-size: 1rem;
   font-weight: 700;
+  line-height: 1.2;
   text-transform: uppercase;
   color: #ff5733;
   letter-spacing: 1.5px;
@@ -66,7 +65,7 @@ export const Stats = styled.div`
   align-items: center;
   gap: 2rem;
   width: 100%;
-  margin-top: 0.5rem;
+  margin-top: 1rem;
   color: #aaa;
 `;
 
@@ -95,6 +94,10 @@ export const AddToCartIcon = styled(CartPlusIcon)`
   &:hover {
     color: #ff5733;
   }
+`;
+
+export const DescriptionContainer = styled.div`
+  width: 100%;
 `;
 
 export const Description = styled.p`
