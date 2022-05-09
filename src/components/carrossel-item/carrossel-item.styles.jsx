@@ -15,6 +15,24 @@ export const CarrosselItemContainer = styled.div`
   scroll-snap-align: center;
 `;
 
+export const Title = styled.h3`
+  width: 100%;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.2;
+  text-transform: uppercase;
+  color: #ff5733;
+  letter-spacing: 1.5px;
+  cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  @media screen and (min-width: 768px) {
+    font-size: 1.5rem;
+  }
+`;
+
 export const ItemInfo = styled.div`
   position: absolute;
   bottom: 0;
@@ -31,7 +49,12 @@ export const ItemInfo = styled.div`
   transition: height 400ms ease;
 
   &:hover {
-    height: 10.72rem;
+    height: 11rem;
+
+    ${Title} {
+      white-space: normal;
+      overflow: visible;
+    }
   }
 
   @media screen and (min-width: 768px) {
@@ -41,21 +64,6 @@ export const ItemInfo = styled.div`
     &:hover {
       height: 12.32rem;
     }
-  }
-`;
-
-export const Title = styled.h3`
-  width: 100%;
-  font-size: 1rem;
-  font-weight: 700;
-  line-height: 1.2;
-  text-transform: uppercase;
-  color: #ff5733;
-  letter-spacing: 1.5px;
-  cursor: pointer;
-
-  @media screen and (min-width: 768px) {
-    font-size: 1.5rem;
   }
 `;
 
