@@ -4,7 +4,7 @@ import "./homepage.scss";
 function Homepage() {
   return (
     <div className='homepage-container'>
-      <Carrossel width={"100%"} maxWidth={"800px"} heightRatio={"66%"} />
+      <Carrossel />
     </div>
   );
 }

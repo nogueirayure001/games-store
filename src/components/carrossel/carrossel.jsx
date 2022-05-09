@@ -1,37 +1,12 @@
-import { useRef } from "react";
-import { useCarrossel } from "../../custom-hooks/use-carrossel";
-import { GAMES } from "../../games";
-import CarrosselItem from "../carrossel-item/carrossel-item";
-import {
-  CarrosselContainer,
-  NextSlide,
-  PreviousSlide,
-  Frame,
-  Title,
-} from "./carrossel.styles";
+import CarrosselFrame from "../carrossel-frame/carrossel-frame";
+import { Title, CarrosselContainer } from "./carrossel.styles";
 
-function Carrossel({ width, maxWidth, heightRatio }) {
-  const frame = useRef(null);
-
-  const [previous, next] = useCarrossel(frame);
-
+function Carrossel() {
   return (
-    <CarrosselContainer width={width} maxWidth={maxWidth}>
+    <CarrosselContainer>
       <Title>The best action games on sale!</Title>
 
-      <Frame ref={frame}>
-        {GAMES.map((game) => (
-          <CarrosselItem
-            key={game.slug}
-            item={game}
-            heightRatio={heightRatio}
-          />
-        ))}
-      </Frame>
-
-      <NextSlide onClick={next} />
-
-      <PreviousSlide onClick={previous} />
+      <CarrosselFrame width={"100%"} maxWidth={"800px"} heightRatio={"66%"} />
     </CarrosselContainer>
   );
 }
