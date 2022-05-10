@@ -6,18 +6,20 @@ export function useCarrossel(frame) {
   const [slides, setSlides] = useState(null);
   const slidesLength = slides?.length;
 
+  const frameElement = frame.current;
+  let frameWidth = slides && slides[active].getBoundingClientRect().width;
+
   useEffect(() => {
-    setSlides(frame.current.children);
-  }, [frame, slides]);
+    setSlides(frameElement?.children);
+  }, [frameElement, slides]);
 
   useEffect(() => {
     slides &&
-      slides[active].scrollIntoView({
+      frameElement.scrollTo({
+        left: active * frameWidth,
         behavior: "smooth",
-        block: "nearest",
-        inline: "center",
       });
-  }, [active, slides]);
+  }, [active, slides, frameElement, frameWidth]);
 
   useEffect(() => {
     window.addEventListener("keydown", handleKeyDown);
