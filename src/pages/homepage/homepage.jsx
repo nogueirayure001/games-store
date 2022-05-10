@@ -25,7 +25,7 @@ function Homepage() {
         ))}
       </Carrossel>
 
-      <GamesSection />
+      <GamesSection title='Action Games' games={actionGamesOnSale} />
     </div>
   );
 }
