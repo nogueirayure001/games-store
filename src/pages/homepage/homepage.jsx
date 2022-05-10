@@ -1,4 +1,5 @@
 import Carrossel from "../../components/carrossel/carrossel";
+import GamesSection from "../../components/games-section/games-section";
 import "./homepage.scss";
 
 const CARROSSEL_CONFIGS = {
@@ -11,6 +12,8 @@ function Homepage() {
   return (
     <div className='homepage-container'>
       <Carrossel configs={CARROSSEL_CONFIGS} />
+
+      <GamesSection />
     </div>
   );
 }
