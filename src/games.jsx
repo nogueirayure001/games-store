@@ -1,4 +1,4 @@
-export const GAMES = [
+export const actionGamesOnSale = [
   {
     slug: "elden-ring",
     name: "Elden Ring",

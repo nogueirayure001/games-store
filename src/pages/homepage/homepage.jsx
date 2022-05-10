@@ -1,5 +1,9 @@
 import Carrossel from "../../components/carrossel/carrossel";
 import GamesSection from "../../components/games-section/games-section";
+import CarrosselItem from "../../components/carrossel-item/carrossel-item";
+
+import { actionGamesOnSale } from "../../games";
+
 import "./homepage.scss";
 
 const CARROSSEL_CONFIGS = {
@@ -11,7 +15,15 @@ const CARROSSEL_CONFIGS = {
 function Homepage() {
   return (
     <div className='homepage-container'>
-      <Carrossel configs={CARROSSEL_CONFIGS} />
+      <Carrossel configs={CARROSSEL_CONFIGS}>
+        {actionGamesOnSale.map((game) => (
+          <CarrosselItem
+            key={game.slug}
+            item={game}
+            heightRatio={CARROSSEL_CONFIGS.heightRatio}
+          />
+        ))}
+      </Carrossel>
 
       <GamesSection />
     </div>

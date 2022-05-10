@@ -1,7 +1,5 @@
 import { useRef } from "react";
 import { useCarrossel } from "../../custom-hooks/use-carrossel";
-import { GAMES } from "../../games";
-import CarrosselItem from "../carrossel-item/carrossel-item";
 import {
   CarrosselFrameContainer,
   NextSlide,
@@ -9,22 +7,14 @@ import {
   Frame,
 } from "./carrossel-frame.styles";
 
-function CarrosselFrame({ width, maxWidth, heightRatio }) {
+function CarrosselFrame({ children, width, maxWidth }) {
   const frame = useRef(null);
 
   const [previous, next] = useCarrossel(frame);
 
   return (
     <CarrosselFrameContainer width={width} maxWidth={maxWidth}>
-      <Frame ref={frame}>
-        {GAMES.map((game) => (
-          <CarrosselItem
-            key={game.slug}
-            item={game}
-            heightRatio={heightRatio}
-          />
-        ))}
-      </Frame>
+      <Frame ref={frame}>{children}</Frame>
 
       <NextSlide onClick={next} />
 
