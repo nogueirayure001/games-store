@@ -22,16 +22,16 @@ function Homepage() {
         games={actionGamesOnSale}
         title='The best action games on sale!'
         configs={CARROSSEL_DEFAULT_CONFIGS}
+        carrosselType='multiFrame'
       />
+
+      <GamesSection title='RPG Games' games={RPGGames} limit={4} />
 
       <Carrossel
         games={actionGamesOnSale}
         title='The best action games on sale!'
         configs={CARROSSEL_DEFAULT_CONFIGS}
-        carrosselType='multiFrame'
       />
-
-      <GamesSection title='RPG Games' games={RPGGames} limit={4} />
 
       <Carrossel
         games={actionGamesOnSale}

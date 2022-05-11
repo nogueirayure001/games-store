@@ -43,6 +43,39 @@ export const PreviousSlide = styled(NextSlide)`
   transform: translateY(-50%) rotate(90deg);
 `;
 
+export const MultiFramesContainer = styled.div`
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+`;
+
+export const FrameContainer = styled.div`
+  width: 100%;
+  max-width: 900px;
+  box-shadow: 0 0 12px 3px;
+
+  &:nth-child(1) {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 60%;
+  }
+
+  &:nth-child(2) {
+    z-index: 10;
+  }
+
+  &:nth-child(3) {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    width: 60%;
+  }
+`;
+
 export const Frame = styled.div`
   display: flex;
   width: 100%;

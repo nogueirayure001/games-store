@@ -25,7 +25,6 @@ export const Title = styled.h2`
     margin-bottom: 2rem;
 
     ${({ carrosselType }) =>
-      (carrosselType === "multiItem" || carrosselType === "multiFrame") &&
-      "text-align: left;"}
+      carrosselType === "multiItem" && "text-align: left;"}
   }
 `;

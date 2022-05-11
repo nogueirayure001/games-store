@@ -19,7 +19,6 @@ function CarrosselFrame({
   const [previous, next] = useCarrossel(frame);
 
   const { width, maxWidth } = configs;
-  console.log(configs, width, maxWidth);
 
   const FRAME = {
     default: (

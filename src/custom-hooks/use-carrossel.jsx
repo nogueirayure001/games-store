@@ -6,7 +6,7 @@ export function useCarrossel(frame) {
   const [slides, setSlides] = useState(null);
   const slidesLength = slides?.length;
 
-  const frameElement = frame.current;
+  const frameElement = frame?.current;
   let frameWidth = slides && slides[active].getBoundingClientRect().width;
 
   useEffect(() => {
