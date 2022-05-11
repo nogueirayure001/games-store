@@ -5,6 +5,7 @@ export const CarrosselContainer = styled.section`
   flex-direction: column;
   align-items: center;
   width: 100%;
+  margin-top: 3rem;
 `;
 
 export const Title = styled.h2`
@@ -17,6 +18,7 @@ export const Title = styled.h2`
   letter-spacing: 1.5px;
   text-transform: uppercase;
   color: #aaa;
+  color: #ff5733;
 
   @media screen and (min-width: 768px) {
     font-size: 2rem;

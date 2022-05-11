@@ -19,6 +19,7 @@ export const SectionTitle = styled.h2`
   @media screen and (min-width: 768px) {
     margin-bottom: 2rem;
     font-size: 2rem;
+    text-align: left;
   }
 `;
 

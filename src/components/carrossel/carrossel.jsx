@@ -1,10 +1,10 @@
 import CarrosselFrame from "../carrossel-frame/carrossel-frame";
 import { Title, CarrosselContainer } from "./carrossel.styles";
 
-function Carrossel({ children, configs }) {
+function Carrossel({ children, title, configs }) {
   return (
     <CarrosselContainer>
-      <Title>The best action games on sale!</Title>
+      <Title>{title}</Title>
 
       <CarrosselFrame {...configs}>{children}</CarrosselFrame>
     </CarrosselContainer>

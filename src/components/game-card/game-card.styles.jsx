@@ -27,9 +27,11 @@ export const AddToCartButton = styled(CartButton)`
 `;
 
 export const GameCardContainer = styled.div`
+  justify-self: center;
   flex: 1 1 250px;
   position: relative;
-  max-width: 400px;
+  max-width: 500px;
+  width: 100%;
   color: #aaa;
   border-radius: 6px;
   background-color: #000;
