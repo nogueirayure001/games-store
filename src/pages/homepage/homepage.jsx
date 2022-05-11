@@ -2,7 +2,7 @@ import Carrossel from "../../components/carrossel/carrossel";
 import GamesSection from "../../components/games-section/games-section";
 import CarrosselItem from "../../components/carrossel-item/carrossel-item";
 
-import { actionGamesOnSale } from "../../games";
+import { actionGamesOnSale, RPGGames } from "../../games";
 
 import "./homepage.scss";
 
@@ -25,7 +25,7 @@ function Homepage() {
         ))}
       </Carrossel>
 
-      <GamesSection title='Action Games' games={actionGamesOnSale} />
+      <GamesSection title='RPG Games' games={RPGGames} />
     </div>
   );
 }
