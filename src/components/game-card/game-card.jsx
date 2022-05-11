@@ -16,7 +16,9 @@ function GameCard({ game }) {
   return (
     <GameCardContainer>
       <AddToCartButton type='button' />
+
       <Image image={background_image} />
+
       <GameInfo>
         <Name>{name}</Name>
         <Price>$ {price}</Price>

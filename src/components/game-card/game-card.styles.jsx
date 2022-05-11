@@ -26,6 +26,13 @@ export const AddToCartButton = styled(CartButton)`
   z-index: 999;
 `;
 
+export const Image = styled.div`
+  width: 100%;
+  padding-top: 66%;
+  background-image: url(${({ image }) => image});
+  background-size: cover;
+`;
+
 export const GameCardContainer = styled.div`
   justify-self: center;
   flex: 1 1 250px;
@@ -37,22 +44,16 @@ export const GameCardContainer = styled.div`
   background-color: #000;
   overflow: hidden;
   cursor: pointer;
+  box-shadow: 0 0 12px 3px #000;
 
   &:hover {
     ${AddToCartButton} {
       display: block;
     }
-  }
-`;
 
-export const Image = styled.div`
-  width: 100%;
-  padding-top: 66%;
-  background-image: url(${({ image }) => image});
-  background-size: cover;
-
-  &:hover {
-    opacity: 0.8;
+    ${Image} {
+      opacity: 0.8;
+    }
   }
 `;
 
@@ -65,9 +66,12 @@ export const GameInfo = styled.div`
 `;
 
 export const Name = styled.p`
+  color: #ff5733;
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
 `;
 
-export const Price = styled(Name)``;
+export const Price = styled(Name)`
+  color: #aaa;
+`;

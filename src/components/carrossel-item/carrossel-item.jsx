@@ -14,7 +14,7 @@ import {
 } from "./carrossel-item.styles";
 import Button from "../button/button";
 
-function CarrosselItem({ item, heightRatio }) {
+function CarrosselItem({ item, heightRatio, showInfo = true }) {
   const { name, background_image, rating, id } = item;
 
   const [price] = useState((Math.random() * 30 + 20).toFixed(2));
@@ -28,7 +28,7 @@ function CarrosselItem({ item, heightRatio }) {
       backgroundImage={background_image}
       heightRatio={heightRatio}
     >
-      <ItemInfo>
+      <ItemInfo showInfo={showInfo}>
         <Title onClick={handleClick}>{name}</Title>
 
         <Stats>

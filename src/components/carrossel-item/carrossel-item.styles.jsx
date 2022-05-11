@@ -36,7 +36,7 @@ export const Title = styled.h3`
 export const ItemInfo = styled.div`
   position: absolute;
   bottom: 0;
-  display: flex;
+  display: ${({ showInfo }) => (showInfo ? "flex" : "none")};
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;

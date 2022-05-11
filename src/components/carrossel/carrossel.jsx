@@ -1,6 +1,5 @@
 import CarrosselFrame from "../carrossel-frame/carrossel-frame";
-import CarrosselItem from "../carrossel-item/carrossel-item";
-import ItemsSplitter from "../items-splitter/items-splitter";
+import CarrosselMultiFrame from "../carrossel-multi-frame/carrossel-multi-frame";
 import { Title, CarrosselContainer } from "./carrossel.styles";
 
 function Carrossel({
@@ -10,27 +9,24 @@ function Carrossel({
   carrosselType = "default",
   splitValue,
 }) {
+  const CARROSSEL = {
+    default: <CarrosselFrame games={games} configs={configs} />,
+    multiItem: (
+      <CarrosselFrame
+        games={games}
+        configs={configs}
+        splitValue={splitValue}
+        frameType={carrosselType}
+      />
+    ),
+    multiFrame: <CarrosselMultiFrame games={games} configs={configs} />,
+  };
+
   return (
     <CarrosselContainer>
       <Title carrosselType={carrosselType}>{title}</Title>
 
-      {carrosselType === "default" && (
-        <CarrosselFrame {...configs}>
-          {games.map((game) => (
-            <CarrosselItem
-              key={game.slug}
-              item={game}
-              heightRatio={configs.heightRatio}
-            />
-          ))}
-        </CarrosselFrame>
-      )}
-
-      {carrosselType === "multi" && (
-        <CarrosselFrame {...configs}>
-          <ItemsSplitter itemsToSplit={games} splitValue={splitValue} />
-        </CarrosselFrame>
-      )}
+      {CARROSSEL[carrosselType]}
     </CarrosselContainer>
   );
 }

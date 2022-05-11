@@ -7,7 +7,6 @@ export const CarrosselFrameContainer = styled.div`
   width: ${({ width }) => (width ? width : "100%")};
   max-width: ${({ maxWidth }) => (maxWidth ? maxWidth : "auto")};
   height: auto;
-  box-shadow: 0 0 12px 3px;
 `;
 
 const Arrow = styled(ArrowIcon)`

@@ -1,0 +1,32 @@
+.multi-frames-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+
+  .frame-container {
+    width: 100%;
+    max-width: 900px;
+    box-shadow: 0 0 12px 3px;
+
+    &:nth-child(1) {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      width: 60%;
+    }
+
+    &:nth-child(2) {
+      z-index: 10;
+    }
+
+    &:nth-child(3) {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+      width: 60%;
+    }
+  }
+}
