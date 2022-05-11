@@ -47,7 +47,7 @@ export const Frame = styled.div`
   display: flex;
   width: 100%;
   margin: 0 auto;
-  border-radius: 4px;
+  border-radius: 6px;
   overflow: hidden;
   scroll-snap-type: x mandatory;
 `;

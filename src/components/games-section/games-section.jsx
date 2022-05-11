@@ -13,7 +13,7 @@ function GamesSection({ title, games }) {
 
       <GameCardsContainer>
         {games?.map((game) => (
-          <GameCard game={game} />
+          <GameCard key={game.name} game={game} />
         ))}
       </GameCardsContainer>
     </GamesSectionContainer>

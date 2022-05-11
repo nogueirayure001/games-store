@@ -1,7 +1,5 @@
 import Carrossel from "../../components/carrossel/carrossel";
 import GamesSection from "../../components/games-section/games-section";
-import CarrosselItem from "../../components/carrossel-item/carrossel-item";
-import ItemsSplitter from "../../components/items-splitter/items-splitter";
 import { actionGamesOnSale, RPGGames } from "../../games";
 
 import "./homepage.scss";
@@ -16,23 +14,18 @@ function Homepage() {
   return (
     <div className='homepage-container'>
       <Carrossel
-        configs={CARROSSEL_CONFIGS}
+        games={actionGamesOnSale}
         title='The best action games on sale!'
-      >
-        {actionGamesOnSale.map((game) => (
-          <CarrosselItem
-            key={game.slug}
-            item={game}
-            heightRatio={CARROSSEL_CONFIGS.heightRatio}
-          />
-        ))}
-      </Carrossel>
+        configs={CARROSSEL_CONFIGS}
+      />
 
       <GamesSection title='RPG Games' games={RPGGames} />
 
-      <Carrossel title='Action Games'>
-        <ItemsSplitter itemsToSplit={actionGamesOnSale} splitValue={3} />
-      </Carrossel>
+      <Carrossel
+        games={actionGamesOnSale}
+        title='Action Games'
+        carrosselType='multi'
+      />
     </div>
   );
 }
