@@ -16,7 +16,7 @@ function CarrosselFrame({
   splitValue = 3,
 }) {
   const frame = useRef(null);
-  const [previous, next] = useCarrossel(frame);
+  const [previous, next] = useCarrossel(frame, true);
 
   const { width, maxWidth } = configs;
 

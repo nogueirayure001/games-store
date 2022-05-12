@@ -13,7 +13,7 @@ import {
 function CarrosselMultiFrame({ games, configs }) {
   const [frame0, frame1, frame2] = [useRef(null), useRef(null), useRef(null)];
   const frames = [frame0, frame1, frame2];
-  const [handlePrevious, handleNext] = useCarrosselMultiFrame(frames);
+  const [handlePrevious, handleNext] = useCarrosselMultiFrame(frames, true);
 
   const { width, heightRatio } = configs;
 

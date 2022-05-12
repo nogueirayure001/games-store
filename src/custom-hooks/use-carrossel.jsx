@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-export function useCarrossel(frame) {
+export function useCarrossel(frame, useKeypad = false) {
   const [active, setActive] = useState(0);
 
   const [slides, setSlides] = useState(null);
@@ -22,6 +22,8 @@ export function useCarrossel(frame) {
   }, [active, slides, frameElement, frameWidth]);
 
   useEffect(() => {
+    if (!useKeypad) return;
+
     window.addEventListener("keydown", handleKeyDown);
 
     return () => {
@@ -62,5 +64,5 @@ export function useCarrossel(frame) {
     }
   }
 
-  return [previous, next];
+  return [previous, next, handleKeyDown];
 }
