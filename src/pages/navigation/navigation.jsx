@@ -13,9 +13,9 @@ import {
 } from "./navigation.styles";
 
 function Navigation() {
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [isMenuOpen, setMenuOpen] = useState(false);
 
-  const toggleHandler = () => setMenuOpen(!menuOpen);
+  const toggleHandler = () => setMenuOpen(!isMenuOpen);
 
   return (
     <Fragment>
@@ -28,10 +28,10 @@ function Navigation() {
           </Link>
         </LogoContainer>
 
-        <NavFunctionality menuOpen={menuOpen} />
+        <NavFunctionality isMenuOpen={isMenuOpen} />
 
         <MenuToggler onClick={toggleHandler}>
-          <MenuTogglerIcon menuOpen={menuOpen} />
+          <MenuTogglerIcon isMenuOpen={isMenuOpen} />
         </MenuToggler>
       </SiteHeader>
 

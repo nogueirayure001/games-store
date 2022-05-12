@@ -3,9 +3,28 @@ import { useCarrossel } from "./use-carrossel";
 
 export function useCarrosselMultiFrame(frames, useKeypad) {
   const [frame0, frame1, frame2] = frames;
-  const { previous0, next0, handleKeyDown0 } = useCarrossel(frame0);
-  const { previous1, next1, handleKeyDown1 } = useCarrossel(frame1);
-  const { previous2, next2, handleKeyDown2 } = useCarrossel(frame2);
+
+  const {
+    previous: previous0,
+    next: next0,
+    handleKeyDown: handleKeyDown0,
+    showSlide: showSlide0,
+  } = useCarrossel(frame0);
+
+  const {
+    previous: previous1,
+    next: next1,
+    handleKeyDown: handleKeyDown1,
+    showSlide: showSlide1,
+    active,
+  } = useCarrossel(frame1);
+
+  const {
+    previous: previous2,
+    next: next2,
+    handleKeyDown: handleKeyDown2,
+    showSlide: showSlide2,
+  } = useCarrossel(frame2);
 
   useEffect(() => {
     if (!useKeypad) return;
@@ -35,5 +54,11 @@ export function useCarrosselMultiFrame(frames, useKeypad) {
     handleKeyDown2(event);
   };
 
-  return { handlePrevious, handleNext, handleKeyDown };
+  const showSlide = (event) => {
+    showSlide0(event);
+    showSlide1(event);
+    showSlide2(event);
+  };
+
+  return { handlePrevious, handleNext, handleKeyDown, showSlide, active };
 }

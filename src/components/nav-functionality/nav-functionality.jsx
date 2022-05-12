@@ -8,9 +8,9 @@ import {
   NavLink,
 } from "./nav-functionality.styles";
 
-function NavFunctionality({ menuOpen }) {
+function NavFunctionality({ isMenuOpen }) {
   return (
-    <NavContainer menuOpen={menuOpen}>
+    <NavContainer isMenuOpen={isMenuOpen}>
       <MiddleNavBar>
         <NavItem>
           <NavLink to='/'>Home</NavLink>

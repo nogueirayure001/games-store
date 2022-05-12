@@ -87,8 +87,8 @@ export const MenuTogglerIcon = styled(ArrowIcon)`
   color: #ff5733;
   transition: transform 400ms ease;
 
-  ${({ menuOpen }) =>
-    menuOpen &&
+  ${({ isMenuOpen }) =>
+    isMenuOpen &&
     css`
       transform: rotate(-540deg);
     `}

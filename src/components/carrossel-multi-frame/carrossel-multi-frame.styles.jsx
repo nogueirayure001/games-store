@@ -2,11 +2,18 @@ import styled from "styled-components";
 import { ReactComponent as ArrowIcon } from "../../assets/arrow-icon.svg";
 import Button from "../button/button";
 
-export const CarrosselFrameContainer = styled.div`
-  position: relative;
-  width: ${({ width }) => (width ? width : "100%")};
-  max-width: ${({ maxWidth }) => (maxWidth ? maxWidth : "auto")};
+export const CarrosselMultiFrameContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
   height: auto;
+
+  ${({ setBreadcrumbs }) => setBreadcrumbs && "gap: 16px;"};
+
+  ${({ breadcrumbsConfigs }) => {
+    return breadcrumbsConfigs?.isOnHorizontal && "flex-direction: column;";
+  }}
 `;
 
 const Arrow = styled(ArrowIcon)`
@@ -41,6 +48,12 @@ export const PreviousSlide = styled(NextSlide)`
   right: auto;
   left: -20px;
   transform: translateY(-50%) rotate(90deg);
+`;
+
+export const FramesAndButtons = styled.div`
+  position: relative;
+  width: ${({ width }) => (width ? width : "100%")}; //
+  max-width: ${({ maxWidth }) => (maxWidth ? maxWidth : "auto")};
 `;
 
 export const MultiFramesContainer = styled.div`

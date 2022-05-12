@@ -7,14 +7,14 @@ export const NavContainer = styled.nav`
   flex: 1 1 auto;
   display: flex;
   flex-direction: column;
-  height: ${({ menuOpen, navBoxHeight = 144 }) =>
-    menuOpen ? `${navBoxHeight}px` : 0};
+  height: ${({ isMenuOpen, navBoxHeight = 144 }) =>
+    isMenuOpen ? `${navBoxHeight}px` : 0};
   transition: height 400ms ease;
   overflow: hidden;
 
   @media screen and (max-width: 358.99px) {
-    height: ${({ menuOpen, navBoxHeight = 201 }) =>
-      menuOpen ? `${navBoxHeight}px` : 0};
+    height: ${({ isMenuOpen, navBoxHeight = 201 }) =>
+      isMenuOpen ? `${navBoxHeight}px` : 0};
   }
 
   @media screen and (min-width: 1000px) {

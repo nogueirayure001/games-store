@@ -26,11 +26,16 @@ function Carrossel({
         configs={configs}
         splitValue={splitValue}
         frameType={carrosselType}
+      />
+    ),
+    multiFrame: (
+      <CarrosselMultiFrame
+        games={games}
+        configs={configs}
         setBreadcrumbs={setBreadcrumbs}
         breadcrumbsConfigs={breadcrumbsConfigs}
       />
     ),
-    multiFrame: <CarrosselMultiFrame games={games} configs={configs} />,
   };
 
   return (

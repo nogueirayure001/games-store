@@ -15,6 +15,11 @@ const CARROSSEL_MULTI_ITEM_CONFIGS = {
   heightRatio: "66%",
 };
 
+const CARROSSEL_MULTI_FRAME_CONFIGS = {
+  width: "100%",
+  heightRatio: "66%",
+};
+
 function Homepage() {
   return (
     <div className='homepage-container'>
@@ -31,9 +36,12 @@ function Homepage() {
       <Carrossel
         games={actionGamesOnSale}
         title='The best action games on sale!'
-        configs={CARROSSEL_DEFAULT_CONFIGS}
+        configs={CARROSSEL_MULTI_FRAME_CONFIGS}
         carrosselType='multiFrame'
         setBreadcrumbs
+        breadcrumbsConfigs={{
+          isOnHorizontal: true,
+        }}
       />
 
       <GamesSection title='RPG Games' games={RPGGames} limit={4} />
