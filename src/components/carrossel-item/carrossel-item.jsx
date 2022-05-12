@@ -27,6 +27,7 @@ function CarrosselItem({ item, heightRatio, showInfo = true }) {
     <CarrosselItemContainer
       backgroundImage={background_image}
       heightRatio={heightRatio}
+      id={id}
     >
       <ItemInfo showInfo={showInfo}>
         <Title onClick={handleClick}>{name}</Title>

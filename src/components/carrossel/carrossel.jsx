@@ -8,15 +8,26 @@ function Carrossel({
   configs,
   carrosselType = "default",
   splitValue,
+  setBreadcrumbs,
+  breadcrumbsConfigs,
 }) {
   const CARROSSEL = {
-    default: <CarrosselFrame games={games} configs={configs} />,
+    default: (
+      <CarrosselFrame
+        games={games}
+        configs={configs}
+        setBreadcrumbs={setBreadcrumbs}
+        breadcrumbsConfigs={breadcrumbsConfigs}
+      />
+    ),
     multiItem: (
       <CarrosselFrame
         games={games}
         configs={configs}
         splitValue={splitValue}
         frameType={carrosselType}
+        setBreadcrumbs={setBreadcrumbs}
+        breadcrumbsConfigs={breadcrumbsConfigs}
       />
     ),
     multiFrame: <CarrosselMultiFrame games={games} configs={configs} />,

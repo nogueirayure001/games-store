@@ -3,11 +3,17 @@ import { ReactComponent as ArrowIcon } from "../../assets/arrow-icon.svg";
 import Button from "../button/button";
 
 export const CarrosselFrameContainer = styled.div`
-  position: relative;
-  width: ${({ width }) => (width ? width : "100%")};
-  max-width: ${({ maxWidth }) => (maxWidth ? maxWidth : "auto")};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
   height: auto;
-  box-shadow: 0 0 12px 3px;
+
+  ${({ setBreadcrumbs }) => setBreadcrumbs && "gap: 16px;"};
+
+  ${({ breadcrumbsConfigs }) => {
+    return breadcrumbsConfigs?.isOnHorizontal && "flex-direction: column;";
+  }}
 `;
 
 const Arrow = styled(ArrowIcon)`
@@ -51,4 +57,11 @@ export const Frame = styled.div`
   border-radius: 6px;
   overflow: hidden;
   scroll-snap-type: x mandatory;
+  box-shadow: 0 0 12px 3px;
+`;
+
+export const FrameAndButtons = styled.div`
+  position: relative;
+  width: ${({ width }) => (width ? width : "100%")}; //
+  max-width: ${({ maxWidth }) => (maxWidth ? maxWidth : "auto")};
 `;

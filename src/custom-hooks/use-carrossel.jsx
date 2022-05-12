@@ -64,5 +64,17 @@ export function useCarrossel(frame, useKeypad = false) {
     }
   }
 
-  return [previous, next, handleKeyDown];
+  function showSlide(event) {
+    const targetSlide = event.target.id;
+
+    const carrosselSlides = Array.from(slides);
+
+    carrosselSlides.forEach((slide, index) => {
+      if (slide.id === targetSlide) {
+        setActive(index);
+      }
+    });
+  }
+
+  return { previous, next, handleKeyDown, showSlide, active };
 }

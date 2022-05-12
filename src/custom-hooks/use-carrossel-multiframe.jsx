@@ -3,9 +3,9 @@ import { useCarrossel } from "./use-carrossel";
 
 export function useCarrosselMultiFrame(frames, useKeypad) {
   const [frame0, frame1, frame2] = frames;
-  const [previous0, next0, handleKeyDown0] = useCarrossel(frame0);
-  const [previous1, next1, handleKeyDown1] = useCarrossel(frame1);
-  const [previous2, next2, handleKeyDown2] = useCarrossel(frame2);
+  const { previous0, next0, handleKeyDown0 } = useCarrossel(frame0);
+  const { previous1, next1, handleKeyDown1 } = useCarrossel(frame1);
+  const { previous2, next2, handleKeyDown2 } = useCarrossel(frame2);
 
   useEffect(() => {
     if (!useKeypad) return;
@@ -35,5 +35,5 @@ export function useCarrosselMultiFrame(frames, useKeypad) {
     handleKeyDown2(event);
   };
 
-  return [handlePrevious, handleNext];
+  return { handlePrevious, handleNext, handleKeyDown };
 }
