@@ -31,6 +31,12 @@ export const Breadcrumb = styled.li`
   background-image: url(${({ image }) => image && image});
   background-size: cover;
   background-position: center;
+  transition: transform 400ms ease;
+
+  &:hover {
+    transform-origin: center;
+    transform: scale(0.9);
+  }
 
   ${({ active }) => {
     return (
