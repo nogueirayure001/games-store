@@ -17,7 +17,10 @@ const CARROSSEL_MULTI_ITEM_CONFIGS = {
 
 const CARROSSEL_MULTI_FRAME_CONFIGS = {
   width: "100%",
+  maxWidth: "800px",
   heightRatio: "66%",
+  sideSlidesOffset: "10%",
+  sideSlidesPercentHeight: "90%",
 };
 
 function Homepage() {
@@ -41,6 +44,7 @@ function Homepage() {
         setBreadcrumbs
         breadcrumbsConfigs={{
           isOnHorizontal: true,
+          crumbMaxWidth: "800px",
         }}
       />
 

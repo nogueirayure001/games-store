@@ -71,9 +71,9 @@ export const FrameContainer = styled.div`
   &:nth-child(1) {
     position: absolute;
     top: 50%;
-    left: 0;
+    left: ${({ sideSlidesOffset }) => `-${sideSlidesOffset}` || "100%"};
     transform: translateY(-50%);
-    width: 60%;
+    width: ${({ sideSlidesPercentHeight }) => sideSlidesPercentHeight || "80%"};
   }
 
   &:nth-child(2) {
@@ -83,9 +83,9 @@ export const FrameContainer = styled.div`
   &:nth-child(3) {
     position: absolute;
     top: 50%;
-    right: 0;
+    right: ${({ sideSlidesOffset }) => `-${sideSlidesOffset}` || "100%"};
     transform: translateY(-50%);
-    width: 60%;
+    width: ${({ sideSlidesPercentHeight }) => sideSlidesPercentHeight || "80%"};
   }
 `;
 

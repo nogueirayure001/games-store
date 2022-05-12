@@ -47,15 +47,15 @@ function CarrosselMultiFrame({
     >
       <FramesAndButtons {...configs}>
         <MultiFramesContainer>
-          <FrameContainer>
+          <FrameContainer {...configs}>
             <Frame ref={frame0}>{gameCardsSides}</Frame>
           </FrameContainer>
 
-          <FrameContainer>
+          <FrameContainer {...configs}>
             <Frame ref={frame1}>{gameCardsMain}</Frame>
           </FrameContainer>
 
-          <FrameContainer>
+          <FrameContainer {...configs}>
             <Frame ref={frame2}>{gameCardsSides}</Frame>
           </FrameContainer>
         </MultiFramesContainer>
