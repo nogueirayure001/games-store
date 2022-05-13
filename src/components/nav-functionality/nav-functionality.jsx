@@ -1,4 +1,7 @@
+import { useContext } from "react";
+import { ColorModeContext } from "../../contexts/color-mode-context";
 import {
+  ColorModeToggler,
   UserIcon,
   CartIcon,
   NavContainer,
@@ -9,6 +12,12 @@ import {
 } from "./nav-functionality.styles";
 
 function NavFunctionality({ isMenuOpen }) {
+  const { usingDarkMode, toggleColorMode } = useContext(ColorModeContext);
+
+  const handleToggle = () => {
+    toggleColorMode(!usingDarkMode);
+  };
+
   return (
     <NavContainer isMenuOpen={isMenuOpen}>
       <MiddleNavBar>
@@ -26,6 +35,9 @@ function NavFunctionality({ isMenuOpen }) {
       </MiddleNavBar>
 
       <RightNavBar>
+        <NavItem>
+          <ColorModeToggler checked={usingDarkMode} onChange={handleToggle} />
+        </NavItem>
         <NavItem>
           <CartIcon />
         </NavItem>

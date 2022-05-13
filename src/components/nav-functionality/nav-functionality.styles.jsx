@@ -158,6 +158,55 @@ export const NavLink = styled(Link)`
   }
 `;
 
+export const ColorModeToggler = styled.input.attrs({
+  type: "checkbox",
+})`
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  position: relative;
+  width: 52px;
+  height: 24px;
+  border: 2px solid ${({ theme }) => theme?.colors && theme.colors.primary};
+
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    rgba(39, 109, 135, 1) 0%,
+    rgba(56, 176, 222, 1) 35%
+  );
+  cursor: pointer;
+
+  &::after {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    display: block;
+    content: " ";
+    width: 16px;
+    height: 16px;
+    border-radius: 999px;
+    background-color: ${({ theme }) =>
+      theme?.colors && theme.colors.secondary3};
+    transition: all 400ms ease;
+  }
+
+  &:checked {
+    border: 2px solid ${({ theme }) => theme?.colors && theme.colors.primary};
+    background: linear-gradient(
+      270deg,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(34, 34, 34, 1) 35%
+    );
+
+    &::after {
+      background-color: ${({ theme }) =>
+        theme?.colors && theme.colors.secondary};
+      right: 30px;
+    }
+  }
+`;
+
 export const UserIcon = styled(AccountIcon)`
   width: 30px;
   transition: color 400ms ease;

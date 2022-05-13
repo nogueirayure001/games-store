@@ -115,4 +115,6 @@ export const MenuToggler = styled.button`
 export const Main = styled.main`
   flex: 1 0 auto;
   display: flex;
+  background-color: ${({ theme }) => theme?.colors && theme.colors.neutral2};
+  overflow: hidden;
 `;
