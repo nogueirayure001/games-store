@@ -19,7 +19,7 @@ const CARROSSEL_MULTI_FRAME_CONFIGS = {
   width: "100%",
   maxWidth: "800px",
   heightRatio: "66%",
-  sideSlidesOffset: "10%",
+  sideSlidesOffset: "8%",
   sideSlidesPercentHeight: "90%",
 };
 

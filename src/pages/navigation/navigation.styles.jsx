@@ -8,10 +8,10 @@ export const SiteHeader = styled.header`
   flex-direction: column;
   width: 100%;
   padding: 16px 24px;
-  background-color: #000;
+  background-color: ${({ theme }) => theme?.colors && theme.colors.neutral};
   transition: height 400ms ease;
 
-  @media screen and (min-width: 1000px) {
+  @media screen and (min-width: 1024px) {
     flex-direction: row;
   }
 `;
@@ -24,7 +24,7 @@ export const LogoContainer = styled.div`
   width: 100%;
   overflow: hidden;
 
-  @media screen and (min-width: 1000px) {
+  @media screen and (min-width: 1024px) {
     width: 22.5rem;
   }
 `;
@@ -32,14 +32,14 @@ export const LogoContainer = styled.div`
 export const Title = styled.h1`
   width: 0;
   margin-left: 0;
-  font-family: "Koulen", cursive;
+  font-family: ${({ theme }) => theme?.fonts && theme.fonts.primary};
   font-size: 1.25rem;
-  font-weight: bold;
+  font-weight: 700;
   letter-spacing: 3px;
   text-align: center;
   text-transform: uppercase;
   white-space: nowrap;
-  color: #ff5733;
+  color: ${({ theme }) => theme?.colors && theme.colors.primary};
   animation-name: show-word;
   animation-duration: 2s;
   animation-fill-mode: forwards;
@@ -57,7 +57,7 @@ export const Title = styled.h1`
 export const Logo = styled(SiteLogo)`
   width: 80px;
   height: 80px;
-  color: #feaa00;
+  color: ${({ theme }) => theme?.colors && theme.colors.primary};
   transform: scale(4);
   animation-name: logo-fall;
   animation-duration: 2s;
@@ -84,7 +84,7 @@ export const Logo = styled(SiteLogo)`
 
 export const MenuTogglerIcon = styled(ArrowIcon)`
   width: 16px;
-  color: #ff5733;
+  color: ${({ theme }) => theme?.colors && theme.colors.primary};
   transition: transform 400ms ease;
 
   ${({ isMenuOpen }) =>
@@ -100,14 +100,14 @@ export const MenuToggler = styled.button`
   left: 0;
   width: 100%;
   padding: 3.2px 0;
-  background-color: #151515;
+  background-color: ${({ theme }) => theme?.colors && theme.colors.neutral50p};
   z-index: 9999;
 
   &:hover {
-    opacity: 0.9;
+    opacity: 0.8;
   }
 
-  @media screen and (min-width: 1000px) {
+  @media screen and (min-width: 1024px) {
     display: none;
   }
 `;

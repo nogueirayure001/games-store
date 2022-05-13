@@ -11,7 +11,7 @@ export const CarrosselItemContainer = styled.div`
   ${({ backgroundImage }) =>
     backgroundImage && `background-image: url(${backgroundImage});`}
   background-size: cover;
-  background-color: hsla(0, 0%, 0%, 0.9);
+  background-color: ${({ theme }) => theme?.colors && theme.colors.neutral};
   scroll-snap-align: center;
 `;
 
@@ -21,7 +21,7 @@ export const Title = styled.h3`
   font-weight: 700;
   line-height: 1.2;
   text-transform: uppercase;
-  color: #ff5733;
+  color: ${({ theme }) => theme?.colors && theme.colors.primary};
   letter-spacing: 1.5px;
   cursor: pointer;
   white-space: nowrap;
@@ -44,8 +44,8 @@ export const ItemInfo = styled.div`
   height: 3.2rem;
   padding: 1rem 2rem;
   text-align: center;
-  background-color: hsla(0, 0%, 0%, 0.6);
-  border-radius: 8px 8px 0 0;
+  background-color: ${({ theme }) => theme?.colors && theme.colors.neutral60p};
+  border-radius: 6px 6px 0 0;
   transition: height 400ms ease;
 
   &:hover {
@@ -74,7 +74,7 @@ export const Stats = styled.div`
   gap: 2rem;
   width: 100%;
   margin-top: 1rem;
-  color: #aaa;
+  color: ${({ theme }) => theme?.colors && theme.colors.secondary};
 `;
 
 export const Rating = styled.div`
@@ -87,20 +87,20 @@ export const Rating = styled.div`
 export const RatingIcon = styled(StarIcon)`
   width: 16px;
   margin-right: 0.5rem;
-  color: #ff5733;
+  color: ${({ theme }) => theme?.colors && theme.colors.primary};
 `;
 
 export const Value = styled.p`
-  font-weight: 500;
+  font-weight: 700;
 `;
 
 export const AddToCartIcon = styled(CartPlusIcon)`
   width: 24px;
-  color: #aaa;
+  color: ${({ theme }) => theme?.colors && theme.colors.secondary};
   transition: color 400ms ease;
 
   &:hover {
-    color: #ff5733;
+    color: ${({ theme }) => theme?.colors && theme.colors.primary};
   }
 `;
 
@@ -113,7 +113,7 @@ export const Description = styled.p`
   margin: 0.5rem auto 0;
   font-size: 1rem;
   line-height: 1.5;
-  color: #aaa;
+  color: ${({ theme }) => theme?.colors && theme.colors.primary};
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;

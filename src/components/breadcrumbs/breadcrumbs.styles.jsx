@@ -7,7 +7,9 @@ export const BreadcrumbsContainer = styled.ul`
   height: 100%;
   border-radius: 6px;
   overflow: hidden;
-  box-shadow: 0 0 12px 3px;
+  box-shadow: 0 0 12px 3px
+    ${({ theme }) => theme?.colors && theme.colors.neutral3};
+  background-color: ${({ theme }) => theme?.colors && theme.colors.neutral3};
 
   ${({ isOnHorizontal, crumbMaxWidth, crumbHeight }) => {
     return (
@@ -49,8 +51,25 @@ export const Breadcrumb = styled.li`
           left: 0;
           width: 100%;
           height: 100%;
-          background-color: #aaa;
-          opacity: 0.5;
+          border: 2px solid
+            ${({ theme }) => theme?.colors && theme.colors.primary};
+          background-color: ${({ theme }) =>
+            theme?.colors && theme.colors.neutral};
+          opacity: 0.6;
+        }
+
+        &:last-child::after {
+          ${({ isOnHorizontal }) =>
+            isOnHorizontal
+              ? "border-radius: 0 6px 6px 0;"
+              : "border-radius: 0 0 6px 6px;"}
+        }
+
+        &:first-child::after {
+          ${({ isOnHorizontal }) =>
+            isOnHorizontal
+              ? "border-radius: 6px 0 0 6px;"
+              : "border-radius: 6px 6px 0 0;"}
         }
       `
     );

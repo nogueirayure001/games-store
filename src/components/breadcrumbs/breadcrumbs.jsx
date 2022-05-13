@@ -10,6 +10,7 @@ function Breadcrumbs({ games, breadcrumbsConfigs, handleClick, active }) {
           image={game.background_image}
           onClick={handleClick}
           active={active === index}
+          {...breadcrumbsConfigs}
         />
       ))}
     </BreadcrumbsContainer>

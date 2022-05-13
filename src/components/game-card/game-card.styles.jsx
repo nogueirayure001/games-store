@@ -4,11 +4,11 @@ import Button from "../button/button";
 
 const AddToCartIcon = styled(CartPlusIcon)`
   width: 24px;
-  color: #aaa;
+  color: ${({ theme }) => theme?.colors && theme.colors.secondary};
   transition: color 400ms ease;
 
   &:hover {
-    color: #ff5733;
+    color: ${({ theme }) => theme?.colors && theme.colors.primary};
   }
 `;
 
@@ -39,12 +39,13 @@ export const GameCardContainer = styled.div`
   position: relative;
   max-width: 500px;
   width: 100%;
-  color: #aaa;
+  color: ${({ theme }) => theme?.colors && theme.colors.secondary};
   border-radius: 6px;
-  background-color: #000;
+  background-color: ${({ theme }) => theme?.colors && theme.colors.neutral};
   overflow: hidden;
   cursor: pointer;
-  box-shadow: 0 0 12px 3px #000;
+  box-shadow: 0 0 12px 3px
+    ${({ theme }) => theme?.colors && theme.colors.neutral3};
 
   &:hover {
     ${AddToCartButton} {
@@ -66,12 +67,13 @@ export const GameInfo = styled.div`
 `;
 
 export const Name = styled.p`
-  color: #ff5733;
+  font-weight: 700;
+  color: ${({ theme }) => theme?.colors && theme.colors.primary};
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
 `;
 
 export const Price = styled(Name)`
-  color: #aaa;
+  color: ${({ theme }) => theme?.colors && theme.colors.secondary};
 `;

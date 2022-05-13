@@ -19,11 +19,11 @@ export const CarrosselFrameContainer = styled.div`
 const Arrow = styled(ArrowIcon)`
   width: 80px;
   height: 40px;
-  color: #ff5733;
-  background-color: hsl(0, 0%, 67%, 0.3);
-  opacity: 0.3;
+  color: ${({ theme }) => theme?.colors && theme.colors.neutral};
+  background-color: ${({ theme }) => theme?.colors && theme.colors.secondary2};
+  opacity: 0.4;
   cursor: pointer;
-  transition: opacity 300ms ease;
+  transition: opacity 400ms ease;
 
   &:hover {
     opacity: 1;
@@ -57,7 +57,8 @@ export const Frame = styled.div`
   border-radius: 6px;
   overflow: hidden;
   scroll-snap-type: x mandatory;
-  box-shadow: 0 0 12px 3px;
+  box-shadow: 0 0 12px 3px
+    ${({ theme }) => theme?.colors && theme.colors.neutral3};
 `;
 
 export const FrameAndButtons = styled.div`

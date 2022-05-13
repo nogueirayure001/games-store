@@ -17,7 +17,7 @@ export const NavContainer = styled.nav`
       isMenuOpen ? `${navBoxHeight}px` : 0};
   }
 
-  @media screen and (min-width: 1000px) {
+  @media screen and (min-width: 1024px) {
     flex-direction: row;
     justify-content: flex-end;
     height: auto;
@@ -32,30 +32,27 @@ export const NavBar = styled.ul`
   padding: 16px 0;
   gap: 32px 8px;
 
-  @media screen and (min-width: 1000px) {
+  @media screen and (min-width: 1024px) {
     padding: 0;
+    gap: 16px;
   }
 `;
 
 export const MiddleNavBar = styled(NavBar)`
   padding-top: 48px;
 
-  @media screen and (min-width: 1000px) {
+  @media screen and (min-width: 1024px) {
     padding-top: 0;
-    margin-right: 120px;
+    margin-right: 32px;
   }
 `;
 
 export const RightNavBar = styled(NavBar)`
-  gap: 64px;
-
-  @media screen and (min-width: 1000px) {
-    gap: 32px;
-  }
+  gap: 32px;
 `;
 
 export const NavItem = styled.li`
-  color: #aaa;
+  color: ${({ theme }) => theme?.colors && theme.colors.secondary};
   text-transform: uppercase;
   letter-spacing: 2px;
   white-space: nowrap;
@@ -63,8 +60,9 @@ export const NavItem = styled.li`
 `;
 
 export const NavLink = styled(Link)`
-  position: relative;
   padding: 8px 16px;
+  position: relative;
+  font-weight: 700;
 
   &:hover {
     opacity: 0.9;
@@ -83,8 +81,10 @@ export const NavLink = styled(Link)`
     &::before {
       top: 0;
       animation-name: circle-top;
-      border-top: 1px solid #ff5733;
-      border-right: 1px solid #ff5733;
+      border-top: 1px solid
+        ${({ theme }) => theme?.colors && theme.colors.primary};
+      border-right: 1px solid
+        ${({ theme }) => theme?.colors && theme.colors.primary};
 
       @keyframes circle-top {
         0% {
@@ -120,8 +120,10 @@ export const NavLink = styled(Link)`
     &::after {
       bottom: 0;
       animation-name: circle-down;
-      border-left: 1px solid #ff5733;
-      border-bottom: 1px solid #ff5733;
+      border-left: 1px solid
+        ${({ theme }) => theme?.colors && theme.colors.primary};
+      border-bottom: 1px solid
+        ${({ theme }) => theme?.colors && theme.colors.primary};
 
       @keyframes circle-down {
         0% {
@@ -161,10 +163,10 @@ export const UserIcon = styled(AccountIcon)`
   transition: color 400ms ease;
 
   &:hover {
-    color: #ff5733;
+    color: ${({ theme }) => theme?.colors && theme.colors.primary};
   }
 
-  @media screen and (min-width: 1000px) {
+  @media screen and (min-width: 1024px) {
     width: 24px;
   }
 `;
@@ -174,10 +176,10 @@ export const CartIcon = styled(ShoppingIcon)`
   transition: color 400ms ease;
 
   &:hover {
-    color: #ff5733;
+    color: ${({ theme }) => theme?.colors && theme.colors.primary};
   }
 
-  @media screen and (min-width: 1000px) {
+  @media screen and (min-width: 1024px) {
     width: 24px;
   }
 `;
