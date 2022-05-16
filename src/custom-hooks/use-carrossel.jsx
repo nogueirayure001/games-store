@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useViewportObserver } from "./use-viewport-observer";
 
 export function useCarrossel(frame, useKeypad = false) {
   const [active, setActive] = useState(0);
@@ -8,6 +9,8 @@ export function useCarrossel(frame, useKeypad = false) {
 
   const frameElement = frame?.current;
   let frameWidth = slides && slides[active].getBoundingClientRect().width;
+
+  const isElementOnViewport = useViewportObserver(frameElement);
 
   useEffect(() => {
     setSlides(frameElement?.children);
@@ -24,7 +27,7 @@ export function useCarrossel(frame, useKeypad = false) {
   useEffect(() => {
     if (!useKeypad) return;
 
-    window.addEventListener("keydown", handleKeyDown);
+    isElementOnViewport && window.addEventListener("keydown", handleKeyDown);
 
     return () => {
       window.removeEventListener("keydown", handleKeyDown);

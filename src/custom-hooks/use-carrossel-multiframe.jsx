@@ -1,7 +1,8 @@
 import { useEffect } from "react";
 import { useCarrossel } from "./use-carrossel";
+import { useViewportObserver } from "./use-viewport-observer";
 
-export function useCarrosselMultiFrame(frames, useKeypad) {
+export function useCarrosselMultiFrame(frames, useKeypad = false) {
   const [frame0, frame1, frame2] = frames;
 
   const {
@@ -18,6 +19,7 @@ export function useCarrosselMultiFrame(frames, useKeypad) {
     showSlide: showSlide1,
     active,
   } = useCarrossel(frame1);
+  const isElementOnViewport = useViewportObserver(frame1.current);
 
   const {
     previous: previous2,
@@ -29,7 +31,7 @@ export function useCarrosselMultiFrame(frames, useKeypad) {
   useEffect(() => {
     if (!useKeypad) return;
 
-    window.addEventListener("keydown", handleKeyDown);
+    isElementOnViewport && window.addEventListener("keydown", handleKeyDown);
 
     return () => {
       window.removeEventListener("keydown", handleKeyDown);

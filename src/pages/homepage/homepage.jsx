@@ -37,6 +37,12 @@ function Homepage() {
       />
 
       <Carrossel
+        games={RPGGames}
+        title='The best action games on sale!'
+        configs={CARROSSEL_DEFAULT_CONFIGS}
+      />
+
+      <Carrossel
         games={actionGamesOnSale}
         title='The best action games on sale!'
         configs={CARROSSEL_MULTI_FRAME_CONFIGS}
