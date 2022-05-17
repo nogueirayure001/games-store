@@ -17,7 +17,8 @@ export const CarrosselItemContainer = styled.div`
 `;
 
 export const Title = styled.h3`
-  width: 100%;
+  width: auto;
+  margin: 0 auto;
   font-size: 1rem;
   font-weight: 700;
   line-height: 1.2;
