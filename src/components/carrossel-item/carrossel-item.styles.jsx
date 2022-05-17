@@ -120,7 +120,7 @@ export const Description = styled.p`
   margin: 0.5rem auto 0;
   font-size: 1rem;
   line-height: 1.5;
-  color: ${({ theme }) => theme?.colors && theme.colors.primary};
+  color: ${({ theme }) => theme?.colors && theme.colors.secondary};
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
