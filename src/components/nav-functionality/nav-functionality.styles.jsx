@@ -52,6 +52,7 @@ export const RightNavBar = styled(NavBar)`
 `;
 
 export const NavItem = styled.li`
+  position: relative;
   color: ${({ theme }) => theme?.colors && theme.colors.secondary};
   text-transform: uppercase;
   letter-spacing: 2px;

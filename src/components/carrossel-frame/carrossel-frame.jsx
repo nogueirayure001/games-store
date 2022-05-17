@@ -29,7 +29,7 @@ function CarrosselFrame({
           <CarrosselItem
             key={game.id}
             id={game.id}
-            item={game}
+            game={game}
             heightRatio={configs?.heightRatio}
           />
         ))}

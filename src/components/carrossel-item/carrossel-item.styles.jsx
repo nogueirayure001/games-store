@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Button from "../button/button";
 import { ReactComponent as StarIcon } from "../../assets/star-icon.svg";
 import { ReactComponent as CartPlusIcon } from "../../assets/cart-plus.svg";
 
@@ -94,7 +95,7 @@ export const Value = styled.p`
   font-weight: 700;
 `;
 
-export const AddToCartIcon = styled(CartPlusIcon)`
+const AddToCartIcon = styled(CartPlusIcon)`
   width: 24px;
   color: ${({ theme }) => theme?.colors && theme.colors.secondary};
   transition: color 400ms ease;
@@ -103,6 +104,12 @@ export const AddToCartIcon = styled(CartPlusIcon)`
     color: ${({ theme }) => theme?.colors && theme.colors.primary};
   }
 `;
+
+export const AddToCartButton = (props) => (
+  <Button {...props}>
+    <AddToCartIcon />
+  </Button>
+);
 
 export const DescriptionContainer = styled.div`
   width: 100%;

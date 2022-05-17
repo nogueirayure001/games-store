@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { CartContext } from "../../contexts/cart-context";
 import {
   Image,
   GameCardContainer,
@@ -13,9 +14,13 @@ function GameCard({ game }) {
 
   const [price] = useState((Math.random() * 60 + 40).toFixed(2));
 
+  const { addToCart } = useContext(CartContext);
+
+  const addToCartHandler = () => addToCart({ ...game, price });
+
   return (
     <GameCardContainer>
-      <AddToCartButton type='button' />
+      <AddToCartButton onClick={addToCartHandler} type='button' />
 
       <Image image={background_image} />
 

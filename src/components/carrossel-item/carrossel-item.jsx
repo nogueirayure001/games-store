@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { CartContext } from "../../contexts/cart-context";
 import {
   CarrosselItemContainer,
   ItemInfo,
@@ -10,18 +11,21 @@ import {
   RatingIcon,
   Value,
   Description,
-  AddToCartIcon,
+  AddToCartButton,
 } from "./carrossel-item.styles";
-import Button from "../button/button";
 
-function CarrosselItem({ item, heightRatio, showInfo = true }) {
-  const { name, background_image, rating, id } = item;
+function CarrosselItem({ game, heightRatio, showInfo = true }) {
+  const { name, background_image, rating, id } = game;
 
   const [price] = useState((Math.random() * 30 + 20).toFixed(2));
 
   const navigate = useNavigate();
 
-  const handleClick = () => navigate(`/shop/${id}`);
+  const { addToCart } = useContext(CartContext);
+
+  const navigationHandler = () => navigate(`/shop/${id}`);
+
+  const addToCartHandler = () => addToCart({ ...game, price });
 
   return (
     <CarrosselItemContainer
@@ -30,7 +34,7 @@ function CarrosselItem({ item, heightRatio, showInfo = true }) {
       id={id}
     >
       <ItemInfo showInfo={showInfo}>
-        <Title onClick={handleClick}>{name}</Title>
+        <Title onClick={navigationHandler}>{name}</Title>
 
         <Stats>
           <Rating>
@@ -41,9 +45,7 @@ function CarrosselItem({ item, heightRatio, showInfo = true }) {
 
           <Value>$ {price}</Value>
 
-          <Button type='button'>
-            <AddToCartIcon />
-          </Button>
+          <AddToCartButton onClick={addToCartHandler} type='button' />
         </Stats>
 
         <DescriptionContainer>

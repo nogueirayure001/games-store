@@ -1,7 +1,7 @@
 import { Fragment, useState } from "react";
 import { Outlet, Link } from "react-router-dom";
 import NavFunctionality from "../../components/nav-functionality/nav-functionality";
-
+import Cart from "../../components/cart/cart";
 import {
   SiteHeader,
   LogoContainer,
@@ -33,6 +33,8 @@ function Navigation() {
         <MenuToggler onClick={toggleHandler}>
           <MenuTogglerIcon isMenuOpen={isMenuOpen} />
         </MenuToggler>
+
+        <Cart />
       </SiteHeader>
 
       <Main>

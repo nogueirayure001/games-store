@@ -26,7 +26,7 @@ function CarrosselMultiFrame({
   const gameCardsMain = games.map((game) => (
     <CarrosselItem
       key={game.slug}
-      item={game}
+      game={game}
       heightRatio={configs.heightRatio}
     />
   ));
@@ -34,7 +34,7 @@ function CarrosselMultiFrame({
   const gameCardsSides = games.map((game) => (
     <CarrosselItem
       key={game.slug}
-      item={game}
+      game={game}
       heightRatio={configs.heightRatio}
       showInfo={false}
     />
