@@ -8,7 +8,7 @@ export function useCarrossel(frame, useKeypad = false) {
   const slidesLength = slides?.length;
 
   const frameElement = frame?.current;
-  let frameWidth = slides && slides[active].getBoundingClientRect().width;
+  let frameWidth = slides && slides[active]?.getBoundingClientRect().width;
 
   const isElementOnViewport = useViewportObserver(frameElement);
 
