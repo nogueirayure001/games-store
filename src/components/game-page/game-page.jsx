@@ -71,19 +71,19 @@ function GamePage() {
 
           <GameInfoList>
             <GameInfoItem>
-              <InfoItemCategory>retacritic</InfoItemCategory>{" "}
+              <InfoItemCategory>retacritic</InfoItemCategory>
               <InfoItemValue>{metacritic}</InfoItemValue>
             </GameInfoItem>
             <GameInfoItem>
-              <InfoItemCategory>rating</InfoItemCategory>{" "}
+              <InfoItemCategory>rating</InfoItemCategory>
               <InfoItemValue>{rating}</InfoItemValue>
             </GameInfoItem>
             <GameInfoItem>
-              <InfoItemCategory>released</InfoItemCategory>{" "}
+              <InfoItemCategory>released</InfoItemCategory>
               <InfoItemValue>{released}</InfoItemValue>
             </GameInfoItem>
             <GameInfoItem>
-              <InfoItemCategory>genres</InfoItemCategory>{" "}
+              <InfoItemCategory>genres</InfoItemCategory>
               <InfoItemValue>
                 {genres.map(({ name }) => `${name} `)}
               </InfoItemValue>

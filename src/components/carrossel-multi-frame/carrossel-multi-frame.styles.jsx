@@ -64,7 +64,6 @@ export const MultiFramesContainer = styled.div`
 
 export const FrameContainer = styled.div`
   width: 100%;
-  max-width: 900px;
   border-radius: 6px;
   box-shadow: 0 0 12px 3px
     ${({ theme }) => theme?.colors && theme.colors.neutral3};

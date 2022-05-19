@@ -36,6 +36,7 @@ export const Content = styled.div`
 
   @media screen and (min-width: 1024px) {
     flex-direction: row;
+    align-items: flex-start;
   }
 `;
 
@@ -45,7 +46,6 @@ export const MainPageContent = styled.section`
   max-width: 600px;
 
   @media screen and (min-width: 1024px) {
-    align-self: flex-start;
     width: 40%;
   }
 `;
@@ -73,6 +73,7 @@ export const GameInfoItem = styled.li`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 16px;
   padding: 8px 16px;
 
   &:not(:last-child) {
@@ -88,6 +89,7 @@ export const InfoItemCategory = styled.span`
 `;
 
 export const InfoItemValue = styled.span`
+  text-align: right;
   color: ${({ theme }) => theme?.colors && theme.colors.secondary};
 `;
 

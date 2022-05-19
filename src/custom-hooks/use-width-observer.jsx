@@ -8,7 +8,7 @@ export const screenTypes = {
 
 export function useWidthObserver() {
   const [width, setWidth] = useState(window.innerWidth);
-  const [screenType, setScreenType] = useState(screenTypes.phone);
+  const [screenType, setScreenType] = useState(null);
 
   const handleResize = () => setWidth(window.innerWidth);
 
