@@ -1,6 +1,7 @@
 import styled, { css } from "styled-components";
 
 const normal = css`
+  width: 100%;
   padding: 16px;
   font-weight: 700;
   color: ${({ theme }) => theme?.colors && theme.colors.neutral};
@@ -14,7 +15,40 @@ const normal = css`
   }
 `;
 
+const normalDarker = css`
+  width: 100%;
+  padding: 16px;
+  font-weight: 700;
+  color: ${({ theme }) => theme?.colors && theme.colors.neutral};
+  border-radius: 3px;
+  background-color: ${({ theme }) => theme?.colors && theme.colors.secondary};
+  transition: background-color 400ms ease;
+
+  &:hover {
+    background-color: ${({ theme }) => theme?.colors && theme.colors.neutral};
+    color: ${({ theme }) => theme?.colors && theme.colors.secondary};
+  }
+`;
+
+const normalDarkerInverted = css`
+  width: 100%;
+  padding: 16px;
+  font-weight: 700;
+  color: ${({ theme }) => theme?.colors && theme.colors.secondary};
+  border-radius: 3px;
+  background-color: ${({ theme }) => theme?.colors && theme.colors.neutral};
+  transition: background-color 400ms ease;
+
+  &:hover {
+    color: ${({ theme }) => theme?.colors && theme.colors.neutral};
+    background-color: ${({ theme }) => theme?.colors && theme.colors.primary};
+  }
+`;
+
 export const CustomButtom = styled.button`
   text-transform: uppercase;
   ${({ customStyle }) => customStyle === "normal" && normal}
+  ${({ customStyle }) => customStyle === "normalDarker" && normalDarker}
+  ${({ customStyle }) =>
+    customStyle === "normalDarkerInverted" && normalDarkerInverted}
 `;
