@@ -63,6 +63,6 @@ export const Frame = styled.div`
 
 export const FrameAndButtons = styled.div`
   position: relative;
-  width: ${({ width }) => (width ? width : "100%")}; //
+  width: ${({ width }) => (width ? width : "100%")};
   max-width: ${({ maxWidth }) => (maxWidth ? maxWidth : "auto")};
 `;
