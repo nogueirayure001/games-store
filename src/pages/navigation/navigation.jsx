@@ -1,7 +1,7 @@
-import { Fragment, useState } from "react";
+import { Fragment, useState, useRef } from "react";
 import { Outlet, Link } from "react-router-dom";
+import { useClickOutsideCloser } from "../../custom-hooks/use-click-outside-closer";
 import NavFunctionality from "../../components/nav-functionality/nav-functionality";
-import Cart from "../../components/cart/cart";
 import {
   SiteHeader,
   LogoContainer,
@@ -17,9 +17,14 @@ function Navigation() {
 
   const toggleHandler = () => setMenuOpen(!isMenuOpen);
 
+  const menuAreaRef = useRef();
+  const menuOpenerRef = useRef();
+
+  useClickOutsideCloser(isMenuOpen, toggleHandler, menuAreaRef, menuOpenerRef);
+
   return (
     <Fragment>
-      <SiteHeader>
+      <SiteHeader ref={menuAreaRef}>
         <LogoContainer>
           <Title>Wolff Gamestore</Title>
 
@@ -30,11 +35,9 @@ function Navigation() {
 
         <NavFunctionality isMenuOpen={isMenuOpen} />
 
-        <MenuToggler onClick={toggleHandler}>
+        <MenuToggler onClick={toggleHandler} ref={menuOpenerRef}>
           <MenuTogglerIcon isMenuOpen={isMenuOpen} />
         </MenuToggler>
-
-        <Cart />
       </SiteHeader>
 
       <Main>

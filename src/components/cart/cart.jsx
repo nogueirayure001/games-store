@@ -11,11 +11,11 @@ import {
   Name,
 } from "./cart.styles";
 
-function Cart() {
+function Cart({ insideRef }) {
   const { cartShowing, cartItems } = useContext(CartContext);
 
   return (
-    <CartContainer shouldDisplay={cartShowing}>
+    <CartContainer shouldDisplay={cartShowing} ref={insideRef}>
       <Title>My Cart</Title>
       <ItemsContainer>
         {cartItems?.map((item) => (
