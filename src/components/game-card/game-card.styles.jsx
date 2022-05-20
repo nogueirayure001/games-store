@@ -12,9 +12,9 @@ const AddToCartIcon = styled(CartPlusIcon)`
   }
 `;
 
-const CartButton = (props) => (
-  <Button {...props}>
-    <AddToCartIcon />
+const CartButton = ({ insideRef, ...otherProps }) => (
+  <Button {...otherProps}>
+    <AddToCartIcon ref={insideRef} />
   </Button>
 );
 

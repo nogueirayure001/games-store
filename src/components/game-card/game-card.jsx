@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { CartContext } from "../../contexts/cart-context";
 import {
@@ -16,16 +16,26 @@ function GameCard({ game }) {
   const [price] = useState((Math.random() * 60 + 40).toFixed(2));
 
   const { addToCart } = useContext(CartContext);
-
-  const navigate = useNavigate();
-
   const addToCartHandler = () => addToCart({ ...game, price });
 
-  const navigationHandler = () => navigate(`/shop/${id}`);
+  const navigate = useNavigate();
+  const addToCartRef = useRef();
+  const navigationHandler = (event) => {
+    const { target } = event;
+    const { current: addToCart } = addToCartRef;
+
+    if (target !== addToCart && !addToCart.contains(target)) {
+      navigate(`/shop/${id}`);
+    }
+  };
 
   return (
     <GameCardContainer onClick={navigationHandler}>
-      <AddToCartButton onClick={addToCartHandler} type='button' />
+      <AddToCartButton
+        onClick={addToCartHandler}
+        insideRef={addToCartRef}
+        type='button'
+      />
 
       <Image image={background_image} />
 
