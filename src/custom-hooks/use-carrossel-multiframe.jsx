@@ -31,7 +31,7 @@ export function useCarrosselMultiFrame(frames, useKeypad = false) {
   useEffect(() => {
     if (!useKeypad) return;
 
-    isElementOnViewport && window.addEventListener("keydown", handleKeyDown);
+    window.addEventListener("keydown", handleKeyDown);
 
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
@@ -51,9 +51,13 @@ export function useCarrosselMultiFrame(frames, useKeypad = false) {
   };
 
   const handleKeyDown = (event) => {
-    handleKeyDown0(event);
-    handleKeyDown1(event);
-    handleKeyDown2(event);
+    event.preventDefault();
+
+    if (isElementOnViewport) {
+      handleKeyDown0(event);
+      handleKeyDown1(event);
+      handleKeyDown2(event);
+    }
   };
 
   const showSlide = (event) => {

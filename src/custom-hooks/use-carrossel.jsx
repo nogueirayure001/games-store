@@ -27,7 +27,7 @@ export function useCarrossel(frame, useKeypad = false) {
   useEffect(() => {
     if (!useKeypad) return;
 
-    isElementOnViewport && window.addEventListener("keydown", handleKeyDown);
+    window.addEventListener("keydown", handleKeyDown);
 
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
@@ -35,19 +35,21 @@ export function useCarrossel(frame, useKeypad = false) {
   });
 
   function handleKeyDown(event) {
-    switch (event.key) {
-      case "ArrowRight":
-        event.preventDefault();
-        next();
-        break;
+    event.preventDefault();
 
-      case "ArrowLeft":
-        event.preventDefault();
-        previous();
-        break;
+    if (isElementOnViewport) {
+      switch (event.key) {
+        case "ArrowRight":
+          next();
+          break;
 
-      default:
-        break;
+        case "ArrowLeft":
+          previous();
+          break;
+
+        default:
+          break;
+      }
     }
   }
 
