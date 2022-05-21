@@ -12,9 +12,7 @@ import {
 
 const maxSlides = 8;
 
-function GameCarrossel({ game, configs }) {
-  const { short_screenshots } = game;
-
+function GameCarrossel({ screenshots, configs }) {
   const frame = useRef(null);
 
   const { previous, next, showSlide, active } = useCarrossel(frame, true);
@@ -23,8 +21,8 @@ function GameCarrossel({ game, configs }) {
     <GameCarrosselContainer {...configs}>
       <FrameContainer {...configs}>
         <Frame ref={frame}>
-          {short_screenshots
-            .filter((_, index) => index <= maxSlides)
+          {screenshots
+            ?.filter((_, index) => index <= maxSlides)
             .map(({ image, id }) => (
               <Slide key={id} id={id} image={image} />
             ))}
@@ -36,7 +34,7 @@ function GameCarrossel({ game, configs }) {
 
       <Breadcrumbs
         type='sameGame'
-        screenshots={short_screenshots}
+        screenshots={screenshots}
         handleClick={showSlide}
         active={active}
         breadcrumbsConfigs={{ isOnHorizontal: true }}

@@ -1,20 +1,22 @@
 import { useEffect, useState } from "react";
 
 export function useFetchGame(id) {
-  const BASE_URL = " http://localhost:3000/shop";
-
   const [game, setGame] = useState(null);
+
+  const BASE_URL = "https://api.rawg.io/api/games";
+
+  const url = `${BASE_URL}/${id}?key=${process.env.REACT_APP_KEY}`;
 
   useEffect(() => {
     const getGameData = async () => {
-      const response = await fetch(`${BASE_URL}/${id}`);
+      const response = await fetch(url);
       const gameData = await response.json();
 
       setGame(gameData);
     };
 
     getGameData();
-  }, [id]);
+  }, [id, url]);
 
   return game;
 }

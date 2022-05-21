@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useFetchGame } from "../../custom-hooks/use-fetch-game";
+import { useFetchGameScreenshots } from "../../custom-hooks/use-fetch-game-screenshots";
 import { CartContext } from "../../contexts/cart-context";
 import Button from "../button/button";
 import GameCarrossel from "../game-carrossel/game-carrossel";
@@ -22,8 +23,8 @@ import {
 
 function GamePage() {
   const { id } = useParams();
-
   const game = useFetchGame(id);
+  const screenshots = useFetchGameScreenshots(id);
 
   const [price] = useState((Math.random() * 60 + 40).toFixed(2));
 
@@ -39,7 +40,7 @@ function GamePage() {
     );
   }
 
-  const { name, metacritic, rating, released, genres } = game;
+  const { name, metacritic, rating, released, genres, description_raw } = game;
 
   return (
     <GamePageContainer>
@@ -47,7 +48,7 @@ function GamePage() {
 
       <Content>
         <GameCarrossel
-          game={game}
+          screenshots={screenshots}
           configs={{
             width: "100%",
             maxWidth: "800px",
@@ -71,7 +72,7 @@ function GamePage() {
 
           <GameInfoList>
             <GameInfoItem>
-              <InfoItemCategory>retacritic</InfoItemCategory>
+              <InfoItemCategory>metacritic</InfoItemCategory>
               <InfoItemValue>{metacritic}</InfoItemValue>
             </GameInfoItem>
             <GameInfoItem>
@@ -93,12 +94,7 @@ function GamePage() {
           <AboutGame>
             <AboutGameTitle>about</AboutGameTitle>
 
-            <AboutGameParagraph>
-              There are many variations of passages of Lorem Ipsum available,
-              but the majority have suffered alteration in some form, by
-              injected humour, or randomised words which don't look even
-              slightly believable.
-            </AboutGameParagraph>
+            <AboutGameParagraph>{description_raw}</AboutGameParagraph>
           </AboutGame>
         </MainPageContent>
       </Content>
