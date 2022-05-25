@@ -1,12 +1,12 @@
 import { useContext, useState } from "react";
 import { useParams } from "react-router-dom";
-import { useFetchGame } from "../../custom-hooks/use-fetch-game";
-import { useFetchGameScreenshots } from "../../custom-hooks/use-fetch-game-screenshots";
-import { CartContext } from "../../contexts/cart-context";
-import Button from "../button/button";
-import GameCarrossel from "../game-carrossel/game-carrossel";
+import { useFetchGame } from "../../../custom-hooks/use-fetch-game";
+import { useFetchGameScreenshots } from "../../../custom-hooks/use-fetch-game-screenshots";
+import { CartContext } from "../../../contexts/cart-context";
+import Button from "../../../components/button/button";
+import GameCarrossel from "../../../components/game-carrossel/game-carrossel";
 import {
-  GamePageContainer,
+  ShopPageContainer,
   Title,
   Content,
   MainPageContent,
@@ -19,9 +19,9 @@ import {
   AboutGame,
   AboutGameTitle,
   AboutGameParagraph,
-} from "./game-page.styles";
+} from "./shop-page.styles";
 
-function GamePage() {
+function ShopPage() {
   const { id } = useParams();
   const game = useFetchGame(id);
   const screenshots = useFetchGameScreenshots(id);
@@ -43,7 +43,7 @@ function GamePage() {
   const { name, metacritic, rating, released, genres, description_raw } = game;
 
   return (
-    <GamePageContainer>
+    <ShopPageContainer>
       <Title>{name}</Title>
 
       <Content>
@@ -81,12 +81,12 @@ function GamePage() {
             </GameInfoItem>
             <GameInfoItem>
               <InfoItemCategory>released</InfoItemCategory>
-              <InfoItemValue>{released}</InfoItemValue>
+              <InfoItemValue>{released.replace(/\D/gi, "/")}</InfoItemValue>
             </GameInfoItem>
             <GameInfoItem>
               <InfoItemCategory>genres</InfoItemCategory>
               <InfoItemValue>
-                {genres.map(({ name }) => `${name} `)}
+                {genres.map(({ name }) => name).join(", ")}
               </InfoItemValue>
             </GameInfoItem>
           </GameInfoList>
@@ -98,8 +98,8 @@ function GamePage() {
           </AboutGame>
         </MainPageContent>
       </Content>
-    </GamePageContainer>
+    </ShopPageContainer>
   );
 }
 
-export default GamePage;
+export default ShopPage;

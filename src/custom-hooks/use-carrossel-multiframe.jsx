@@ -11,6 +11,7 @@ export function useCarrosselMultiFrame(frames, useKeypad = false) {
     handleKeyDown: handleKeyDown0,
     showSlide: showSlide0,
   } = useCarrossel(frame0);
+  const isElementOnViewport0 = useViewportObserver(frame1.current);
 
   const {
     previous: previous1,
@@ -19,7 +20,7 @@ export function useCarrosselMultiFrame(frames, useKeypad = false) {
     showSlide: showSlide1,
     active,
   } = useCarrossel(frame1);
-  const isElementOnViewport = useViewportObserver(frame1.current);
+  const isElementOnViewport1 = useViewportObserver(frame1.current);
 
   const {
     previous: previous2,
@@ -27,6 +28,7 @@ export function useCarrosselMultiFrame(frames, useKeypad = false) {
     handleKeyDown: handleKeyDown2,
     showSlide: showSlide2,
   } = useCarrossel(frame2);
+  const isElementOnViewport2 = useViewportObserver(frame1.current);
 
   useEffect(() => {
     if (!useKeypad) return;
@@ -51,9 +53,7 @@ export function useCarrosselMultiFrame(frames, useKeypad = false) {
   };
 
   const handleKeyDown = (event) => {
-    event.preventDefault();
-
-    if (isElementOnViewport) {
+    if (isElementOnViewport0 && isElementOnViewport1 && isElementOnViewport2) {
       handleKeyDown0(event);
       handleKeyDown1(event);
       handleKeyDown2(event);

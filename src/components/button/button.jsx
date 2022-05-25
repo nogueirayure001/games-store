@@ -7,9 +7,18 @@ const CUSTOM_BUTTONS = {
   normalDarkerInverted: "normalDarkerInverted",
 };
 
-function Button({ children, buttonStyle = "default", ...otherProps }) {
+function Button({
+  children,
+  insideRef,
+  buttonStyle = "default",
+  ...otherProps
+}) {
   return (
-    <CustomButtom customStyle={CUSTOM_BUTTONS[buttonStyle]} {...otherProps}>
+    <CustomButtom
+      ref={insideRef}
+      customStyle={CUSTOM_BUTTONS[buttonStyle]}
+      {...otherProps}
+    >
       {children}
     </CustomButtom>
   );

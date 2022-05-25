@@ -1,5 +1,9 @@
 function RenderIf({ children, condition }) {
-  return condition && children;
+  if (condition) {
+    return children;
+  }
+
+  return;
 }
 
 export default RenderIf;

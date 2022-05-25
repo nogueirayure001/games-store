@@ -2,6 +2,8 @@ import { Fragment, useState, useRef } from "react";
 import { Outlet, Link } from "react-router-dom";
 import { useClickOutsideCloser } from "../../custom-hooks/use-click-outside-closer";
 import NavFunctionality from "../../components/nav-functionality/nav-functionality";
+import GameSearch from "../../components/game-search/game-search";
+
 import {
   SiteHeader,
   LogoContainer,
@@ -36,11 +38,13 @@ function Navigation() {
         <NavFunctionality isMenuOpen={isMenuOpen} />
 
         <MenuToggler onClick={toggleHandler} ref={menuOpenerRef}>
-          <MenuTogglerIcon isMenuOpen={isMenuOpen} />
+          <MenuTogglerIcon rotate={isMenuOpen ? "true" : undefined} />
         </MenuToggler>
       </SiteHeader>
 
       <Main>
+        <GameSearch />
+
         <Outlet />
       </Main>
     </Fragment>

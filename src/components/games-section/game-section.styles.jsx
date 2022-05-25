@@ -28,4 +28,8 @@ export const GameCardsContainer = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   gap: 1rem;
+
+  @media screen and (min-width: 768px) {
+    justify-content: flex-start;
+  }
 `;

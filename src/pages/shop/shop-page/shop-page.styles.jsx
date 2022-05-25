@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const GamePageContainer = styled.section`
+export const ShopPageContainer = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: center;

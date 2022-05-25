@@ -1,10 +1,10 @@
 import { Routes, Route } from "react-router-dom";
-import GamePage from "../../components/game-page/game-page";
+import ShopPage from "./shop-page/shop-page";
 
 function Shop() {
   return (
     <Routes>
-      <Route path=':id' element={<GamePage />} />
+      <Route path=':id' element={<ShopPage />} />
     </Routes>
   );
 }

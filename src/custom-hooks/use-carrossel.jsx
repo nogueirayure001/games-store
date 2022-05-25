@@ -35,8 +35,6 @@ export function useCarrossel(frame, useKeypad = false) {
   });
 
   function handleKeyDown(event) {
-    event.preventDefault();
-
     if (isElementOnViewport) {
       switch (event.key) {
         case "ArrowRight":

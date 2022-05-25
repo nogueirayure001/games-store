@@ -87,8 +87,8 @@ export const MenuTogglerIcon = styled(ArrowIcon)`
   color: ${({ theme }) => theme?.colors && theme.colors.primary};
   transition: transform 400ms ease;
 
-  ${({ isMenuOpen }) =>
-    isMenuOpen &&
+  ${({ rotate }) =>
+    rotate &&
     css`
       transform: rotate(-540deg);
     `}
@@ -98,6 +98,8 @@ export const MenuToggler = styled.button`
   position: absolute;
   top: 100%;
   left: 0;
+  display: flex;
+  justify-content: center;
   width: 100%;
   padding: 3.2px 0;
   background-color: ${({ theme }) => theme?.colors && theme.colors.neutral50p};
@@ -115,6 +117,9 @@ export const MenuToggler = styled.button`
 export const Main = styled.main`
   flex: 1 0 auto;
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1.5rem;
   background-color: ${({ theme }) => theme?.colors && theme.colors.neutral2};
   overflow: hidden;
 `;
