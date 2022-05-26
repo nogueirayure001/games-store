@@ -9,16 +9,19 @@ import {
   ShopPageContainer,
   Title,
   Content,
-  MainPageContent,
+  ControlsAndStats,
   GamePrice,
   ButtonsContainer,
   GameInfoList,
   GameInfoItem,
   InfoItemCategory,
   InfoItemValue,
+  FirstContentBlock,
+  SecondContentBlock,
   AboutGame,
   AboutGameTitle,
   AboutGameParagraph,
+  GameLinkContainer,
 } from "./shop-page.styles";
 
 function ShopPage() {
@@ -40,63 +43,82 @@ function ShopPage() {
     );
   }
 
-  const { name, metacritic, rating, released, genres, description_raw } = game;
+  const {
+    name,
+    metacritic,
+    rating,
+    released,
+    genres,
+    description_raw,
+    website,
+  } = game;
 
   return (
     <ShopPageContainer>
       <Title>{name}</Title>
 
       <Content>
-        <GameCarrossel
-          screenshots={screenshots}
-          configs={{
-            width: "100%",
-            maxWidth: "800px",
-            heightRatio: "66%",
-          }}
-        />
+        <FirstContentBlock>
+          <GameCarrossel
+            screenshots={screenshots}
+            configs={{
+              width: "100%",
+              maxWidth: "800px",
+              heightRatio: "66%",
+            }}
+          />
 
-        <MainPageContent>
-          <GamePrice>$ {price}</GamePrice>
+          <ControlsAndStats>
+            <GamePrice>$ {price}</GamePrice>
 
-          <ButtonsContainer>
-            <Button
-              buttonStyle='normalDarkerInverted'
-              onClick={addToCartHandler}
-            >
-              add to cart
-            </Button>
+            <ButtonsContainer>
+              <Button
+                buttonStyle='normalDarkerInverted'
+                onClick={addToCartHandler}
+              >
+                add to cart
+              </Button>
 
-            <Button buttonStyle='normalDarker'>buy</Button>
-          </ButtonsContainer>
+              <Button buttonStyle='normalDarker'>buy</Button>
+            </ButtonsContainer>
 
-          <GameInfoList>
-            <GameInfoItem>
-              <InfoItemCategory>metacritic</InfoItemCategory>
-              <InfoItemValue>{metacritic}</InfoItemValue>
-            </GameInfoItem>
-            <GameInfoItem>
-              <InfoItemCategory>rating</InfoItemCategory>
-              <InfoItemValue>{rating}</InfoItemValue>
-            </GameInfoItem>
-            <GameInfoItem>
-              <InfoItemCategory>released</InfoItemCategory>
-              <InfoItemValue>{released.replace(/\D/gi, "/")}</InfoItemValue>
-            </GameInfoItem>
-            <GameInfoItem>
-              <InfoItemCategory>genres</InfoItemCategory>
-              <InfoItemValue>
-                {genres.map(({ name }) => name).join(", ")}
-              </InfoItemValue>
-            </GameInfoItem>
-          </GameInfoList>
+            <GameInfoList>
+              <GameInfoItem>
+                <InfoItemCategory>metacritic</InfoItemCategory>
+                <InfoItemValue>{metacritic}</InfoItemValue>
+              </GameInfoItem>
+              <GameInfoItem>
+                <InfoItemCategory>rating</InfoItemCategory>
+                <InfoItemValue>{rating}</InfoItemValue>
+              </GameInfoItem>
+              <GameInfoItem>
+                <InfoItemCategory>released</InfoItemCategory>
+                <InfoItemValue>{released?.replace(/\D/gi, "/")}</InfoItemValue>
+              </GameInfoItem>
+              <GameInfoItem>
+                <InfoItemCategory>genres</InfoItemCategory>
+                <InfoItemValue>
+                  {genres.map(({ name }) => name)?.join(", ")}
+                </InfoItemValue>
+              </GameInfoItem>
+            </GameInfoList>
+          </ControlsAndStats>
+        </FirstContentBlock>
 
+        <SecondContentBlock>
           <AboutGame>
             <AboutGameTitle>about</AboutGameTitle>
 
             <AboutGameParagraph>{description_raw}</AboutGameParagraph>
           </AboutGame>
-        </MainPageContent>
+
+          <GameLinkContainer>
+            Visit the{" "}
+            <a href={website} target='_blank' rel='noreferrer'>
+              Official Website
+            </a>
+          </GameLinkContainer>
+        </SecondContentBlock>
       </Content>
     </ShopPageContainer>
   );

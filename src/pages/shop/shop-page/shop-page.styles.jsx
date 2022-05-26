@@ -33,6 +33,15 @@ export const Content = styled.div`
   align-items: center;
   gap: 32px;
   width: 100%;
+`;
+
+export const FirstContentBlock = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+  width: 100%;
 
   @media screen and (min-width: 1024px) {
     flex-direction: row;
@@ -40,9 +49,8 @@ export const Content = styled.div`
   }
 `;
 
-export const MainPageContent = styled.section`
+export const ControlsAndStats = styled.section`
   width: 100%;
-  margin-bottom: 32px;
   max-width: 600px;
 
   @media screen and (min-width: 1024px) {
@@ -65,16 +73,14 @@ export const ButtonsContainer = styled.div`
   }
 `;
 
-export const GameInfoList = styled.ul`
-  margin-bottom: 32px;
-`;
+export const GameInfoList = styled.ul``;
 
 export const GameInfoItem = styled.li`
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 16px;
-  padding: 8px 16px;
+  padding: 16px;
 
   &:not(:last-child) {
     border-bottom: 2px solid
@@ -93,19 +99,48 @@ export const InfoItemValue = styled.span`
   color: ${({ theme }) => theme?.colors && theme.colors.secondary};
 `;
 
+export const SecondContentBlock = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+  width: 100%;
+`;
+
 export const AboutGame = styled.div`
+  width: 100%;
+  max-width: 600px;
   padding: 0 16px;
+
+  @media screen and (min-width: 1024px) {
+    max-width: 1432px;
+  }
 `;
 
 export const AboutGameTitle = styled.h3`
   margin-bottom: 8px;
   font-weight: 700;
-  text-align: left;
+  text-align: center;
   text-transform: uppercase;
   color: ${({ theme }) => theme?.colors && theme.colors.primary};
+
+  @media screen and (min-width: 1024px) {
+    text-align: left;
+  }
 `;
 
 export const AboutGameParagraph = styled.p`
   text-align: justify;
   color: ${({ theme }) => theme?.colors && theme.colors.secondary};
+`;
+
+export const GameLinkContainer = styled.p`
+  text-align: center;
+  color: ${({ theme }) => theme?.colors && theme.colors.secondary};
+
+  a {
+    font-weight: 600;
+    color: ${({ theme }) => theme?.colors && theme.colors.primary};
+  }
 `;
