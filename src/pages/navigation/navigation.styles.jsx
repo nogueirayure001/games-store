@@ -115,6 +115,7 @@ export const MenuToggler = styled.button`
 `;
 
 export const Main = styled.main`
+  position: relative;
   flex: 1 0 auto;
   display: flex;
   flex-direction: column;

@@ -1,6 +1,6 @@
 export const page_sizes = [
-  { name: "10 items", value: "10" },
-  { name: "20 items", value: "20" },
-  { name: "30 items", value: "30" },
-  { name: "40 items", value: "40" },
+  { name: "12 items", value: "12" },
+  { name: "24 items", value: "24" },
+  { name: "36 items", value: "36" },
+  { name: "48 items", value: "48" },
 ];

@@ -15,11 +15,12 @@ import {
 
 import { genres } from "../../../genres";
 import { page_sizes } from "../../../page-sizes";
+import Loading from "../../../components/loading/loading";
 
 const DEFAULT_QUERY_PARAMS = {
   search: "",
   page: 1,
-  page_size: 10,
+  page_size: 12,
   genres: [],
 };
 
@@ -99,7 +100,7 @@ function SearchPage() {
         </RenderIf>
 
         <RenderIf condition={!searchData}>
-          <h2>loading.....</h2>
+          <Loading />
         </RenderIf>
       </Fragment>
 

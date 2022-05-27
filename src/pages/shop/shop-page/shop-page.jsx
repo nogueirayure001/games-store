@@ -5,6 +5,8 @@ import { useFetchGameScreenshots } from "../../../custom-hooks/use-fetch-game-sc
 import { CartContext } from "../../../contexts/cart-context";
 import Button from "../../../components/button/button";
 import GameCarrossel from "../../../components/game-carrossel/game-carrossel";
+import Loading from "../../../components/loading/loading";
+
 import {
   ShopPageContainer,
   Title,
@@ -36,11 +38,7 @@ function ShopPage() {
   const addToCartHandler = () => addToCart({ ...game, price });
 
   if (!game) {
-    return (
-      <div>
-        <h1>carregando...</h1>
-      </div>
-    );
+    return <Loading />;
   }
 
   const {
