@@ -6,10 +6,12 @@ export const GameSearchContainer = styled.form`
   position: relative;
   display: flex;
   width: 200px;
-  margin-top: 1.5rem;
+  margin-top: 24px;
   border-radius: 999px;
   overflow: hidden;
   transition: width 400ms ease;
+  box-shadow: 0 0 12px 3px
+    ${({ theme }) => theme?.colors && theme.colors.neutral3};
 
   &:focus-within {
     outline: 2px solid ${({ theme }) => theme?.colors && theme.colors.primary};
@@ -24,6 +26,10 @@ export const GameSearchContainer = styled.form`
     transition: width 700ms ease;
     width: 500px;
     max-width: 700px;
+  }
+
+  @media screen and (min-width: 1024px) {
+    margin: 0;
   }
 `;
 
@@ -54,6 +60,7 @@ export const SearchInput = styled.input.attrs({ type: "search" })`
 
   &::placeholder {
     color: inherit;
+    opacity: 0.5;
   }
 `;
 
@@ -81,4 +88,10 @@ export const SearchButton = styled(SubmitButtonStyled)`
   position: absolute;
   top: 0;
   right: 0;
+  opacity: 0.5;
+  transition: opacity 400ms ease;
+
+  &:hover {
+    opacity: 1;
+  }
 `;

@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import { CartContext } from "../../contexts/cart-context";
 import Button from "../button/button";
 import {
@@ -13,6 +14,10 @@ import {
 
 function Cart({ insideRef }) {
   const { cartShowing, cartItems } = useContext(CartContext);
+
+  const navigate = useNavigate();
+
+  const ToCheckoutHandler = () => navigate("checkout");
 
   return (
     <CartContainer shouldDisplay={cartShowing} ref={insideRef}>
@@ -30,7 +35,9 @@ function Cart({ insideRef }) {
         ))}
       </ItemsContainer>
 
-      <Button buttonStyle='normal'>checkout</Button>
+      <Button buttonStyle='normal' onClick={ToCheckoutHandler}>
+        checkout
+      </Button>
     </CartContainer>
   );
 }

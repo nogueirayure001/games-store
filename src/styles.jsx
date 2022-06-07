@@ -1,5 +1,3 @@
-// import styled from "styled-components";
-
 export const colorsDarkMode = {
   primary: "#feaa00",
   secondary: "#aaa",
@@ -25,5 +23,5 @@ export const colorsLightMode = {
 
 export const fonts = {
   primary: '"Koulen", cursive',
-  secondary: "",
+  secondary: '"Poppins", sans-serif',
 };

@@ -6,7 +6,7 @@ export const ShopPageContainer = styled.section`
   justify-content: center;
   align-items: center;
   width: 100%;
-  padding: 64px 24px;
+  padding: 48px 24px;
 
   @media screen and (min-width: 1024px) {
     padding: 48px;

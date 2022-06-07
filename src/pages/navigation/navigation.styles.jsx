@@ -122,5 +122,4 @@ export const Main = styled.main`
   align-items: center;
   padding: 2rem 1.5rem;
   background-color: ${({ theme }) => theme?.colors && theme.colors.neutral2};
-  overflow: hidden;
 `;

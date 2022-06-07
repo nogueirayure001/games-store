@@ -29,11 +29,31 @@ export function CartContextProvider({ children }) {
     }
   };
 
+  const removeItemFromCart = (items, itemToRemove, removeAll = false) => {
+    const updatedCartItems = [...items];
+
+    const index = items.findIndex(
+      (item, idx) => item.name === itemToRemove.name
+    );
+
+    if (index === -1) return;
+
+    if (removeAll || updatedCartItems[index].quantity === 1) {
+      updatedCartItems.splice(index, 1);
+    } else {
+      updatedCartItems[index].quantity = updatedCartItems[index].quantity - 1;
+    }
+
+    setCartItems([...updatedCartItems]);
+  };
+
   const value = {
     cartShowing: cartShowing,
     toggleCartShowing: () => setCartShowing(!cartShowing),
     cartItems: cartItems,
     addToCart: (itemToAdd) => addItemToCart(cartItems, itemToAdd),
+    removeFromCart: (itemToRemove, removeAll) =>
+      removeItemFromCart(cartItems, itemToRemove, removeAll),
   };
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;

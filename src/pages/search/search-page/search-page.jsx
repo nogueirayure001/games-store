@@ -4,6 +4,8 @@ import { useSearchGames } from "../../../custom-hooks/use-search-games";
 import RenderIf from "../../../components/render-if/render-if";
 import GamesSection from "../../../components/games-section/games-section";
 import SelectOption from "../../../components/select-option/select-option";
+import Loading from "../../../components/loading/loading";
+
 import {
   SearchPageContainer,
   Message,
@@ -15,7 +17,7 @@ import {
 
 import { genres } from "../../../genres";
 import { page_sizes } from "../../../page-sizes";
-import Loading from "../../../components/loading/loading";
+
 
 const DEFAULT_QUERY_PARAMS = {
   search: "",
