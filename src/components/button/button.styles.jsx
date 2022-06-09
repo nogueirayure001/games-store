@@ -45,10 +45,25 @@ const normalDarkerInverted = css`
   }
 `;
 
+const googleColors = css`
+  width: 100%;
+  padding: 16px;
+  font-weight: 700;
+  color: #fff;
+  border-radius: 3px;
+  background-color: #4285f4;
+  transition: opacity 400ms ease;
+
+  &:hover {
+    opacity: 0.85;
+  }
+`;
+
 export const CustomButtom = styled.button`
   text-transform: uppercase;
   ${({ customStyle }) => customStyle === "normal" && normal}
   ${({ customStyle }) => customStyle === "normalDarker" && normalDarker}
   ${({ customStyle }) =>
     customStyle === "normalDarkerInverted" && normalDarkerInverted}
+  ${({ customStyle }) => customStyle === "googleColors" && googleColors}
 `;

@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+import React, { Fragment } from "react";
 import { BreadcrumbsContainer, Breadcrumb } from "./breadcrumbs.styles";
 
 function Breadcrumbs({

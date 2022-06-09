@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import React, { useRef } from "react";
 import { useCarrossel } from "../../custom-hooks/use-carrossel";
 import CarrosselItem from "../carrossel-item/carrossel-item";
 import ItemsSplitter from "../items-splitter/items-splitter";

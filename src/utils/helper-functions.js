@@ -18,3 +18,7 @@ export function CalcSaleValues(cartItems) {
 
   return { price, discount, total };
 }
+
+export function checkMatchedInputs(matchingPairs, fields) {
+  return matchingPairs.every((pair) => fields[pair[0]] === fields[pair[1]]);
+}

@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useSearchGames } from "../../../custom-hooks/use-search-games";
 import RenderIf from "../../../components/render-if/render-if";
@@ -17,7 +17,6 @@ import {
 
 import { genres } from "../../../genres";
 import { page_sizes } from "../../../page-sizes";
-
 
 const DEFAULT_QUERY_PARAMS = {
   search: "",

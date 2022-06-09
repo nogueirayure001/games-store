@@ -1,3 +1,4 @@
+import React from "react";
 import Summary from "../../components/summary/summary";
 import { CheckoutContainer, PageTitle, Content } from "./checkout.styles";
 import CheckoutItems from "../../components/checkout-items/checkout-items";

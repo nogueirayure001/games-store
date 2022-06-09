@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import React, { useContext } from "react";
 import { CartContext } from "../../contexts/cart-context";
 import CheckoutCard from "../checkout-card/checkout-card";
 import RenderIf from "../render-if/render-if";

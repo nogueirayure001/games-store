@@ -1,3 +1,4 @@
+import React from "react";
 import styled from "styled-components";
 import Button from "../button/button";
 import { ReactComponent as SearchIcon } from "../../assets/search-icon.svg";

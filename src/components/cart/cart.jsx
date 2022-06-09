@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { CartContext } from "../../contexts/cart-context";
 import Button from "../button/button";
@@ -22,6 +22,7 @@ function Cart({ insideRef }) {
   return (
     <CartContainer shouldDisplay={cartShowing} ref={insideRef}>
       <Title>My Cart</Title>
+
       <ItemsContainer>
         {cartItems?.map((item) => (
           <CartItem key={item.slug}>

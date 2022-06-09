@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import React, { useContext } from "react";
 import { ScreenTypeContext, screens } from "../../contexts/screen-type-context";
 import Carrossel from "../../components/carrossel/carrossel";
 import GamesSection from "../../components/games-section/games-section";

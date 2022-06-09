@@ -1,4 +1,4 @@
-import { Fragment, useContext, useRef } from "react";
+import React, { Fragment, useContext, useRef, useState } from "react";
 import { ColorModeContext } from "../../contexts/color-mode-context";
 import { CartContext } from "../../contexts/cart-context";
 import { useClickOutsideCloser } from "../../custom-hooks/use-click-outside-closer";
@@ -13,16 +13,26 @@ import {
   NavItem,
   NavLink,
 } from "./nav-functionality.styles";
+import AuthBox from "../auth-box/auth-box";
 
 function NavFunctionality({ isMenuOpen }) {
   const { usingDarkMode, toggleColorMode } = useContext(ColorModeContext);
 
   const { cartShowing, toggleCartShowing } = useContext(CartContext);
-
   const cartRef = useRef(null);
   const showCartRef = useRef(null);
-
   useClickOutsideCloser(cartShowing, toggleCartShowing, cartRef, showCartRef);
+
+  const [authBoxShowing, setAuthBoxShowing] = useState(false);
+  const toggleAuthBoxShowing = () => setAuthBoxShowing(!authBoxShowing);
+  const authBoxRef = useRef(null);
+  const showAuthBoxRef = useRef(null);
+  useClickOutsideCloser(
+    authBoxShowing,
+    toggleAuthBoxShowing,
+    authBoxRef,
+    showAuthBoxRef
+  );
 
   return (
     <Fragment>
@@ -53,13 +63,15 @@ function NavFunctionality({ isMenuOpen }) {
             <CartIcon />
           </NavItem>
 
-          <NavItem>
+          <NavItem onClick={toggleAuthBoxShowing} ref={showAuthBoxRef}>
             <UserIcon />
           </NavItem>
         </RightNavBar>
       </NavContainer>
 
       <Cart insideRef={cartRef} />
+
+      <AuthBox shouldDisplay={authBoxShowing} insideRef={authBoxRef} />
     </Fragment>
   );
 }

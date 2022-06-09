@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const CartContainer = styled.section`
+export const AuthBoxContainer = styled.section`
   display: ${({ shouldDisplay }) => (shouldDisplay ? "flex" : "none")};
   flex-direction: column;
   gap: 16px;
@@ -9,7 +9,6 @@ export const CartContainer = styled.section`
   right: 50%;
   transform: translateX(50%);
   width: 280px;
-  height: 320px;
   padding: 16px;
   color: ${({ theme }) => theme?.colors && theme.colors.secondary};
   border-radius: 6px;
@@ -32,43 +31,8 @@ export const Title = styled.h2`
   color: ${({ theme }) => theme?.colors && theme.colors.primary};
 `;
 
-export const ItemsContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  height: 100%;
-  padding: 8px;
-  background-color: ${({ theme }) => theme?.colors && theme.colors.neutral2};
-  overflow: auto;
-`;
-
-export const CartItem = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  width: 100%;
-  font-size: 0.85rem;
-
-  img {
-    width: 60px;
-    height: 40px;
-    object-fit: cover;
-  }
-`;
-
-export const Info = styled.div`
-  display: flex;
-  width: 100%;
-  overflow: hidden;
-`;
-
-export const Quantity = styled.p`
-  margin-right: 16px;
-  white-space: nowrap;
-`;
-
-export const Name = styled.p`
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
+export const SignUpMessage = styled.p`
+  margin-top: 16px;
+  line-height: 24px;
+  text-align: center;
 `;

@@ -1,5 +1,5 @@
+import React from "react";
 import GameCard from "../game-card/game-card";
-
 import {
   GamesSectionContainer,
   SectionTitle,

@@ -1,3 +1,4 @@
+import React from "react";
 import styled from "styled-components";
 import { ReactComponent as ArrowIcon } from "../../assets/arrow-icon.svg";
 import Button from "../button/button";

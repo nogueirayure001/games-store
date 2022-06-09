@@ -1,3 +1,4 @@
+import React from "react";
 import CarrosselFrame from "../carrossel-frame/carrossel-frame";
 import CarrosselMultiFrame from "../carrossel-multi-frame/carrossel-multi-frame";
 import { Title, CarrosselContainer } from "./carrossel.styles";

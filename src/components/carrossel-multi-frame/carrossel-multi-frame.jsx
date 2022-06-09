@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import React, { useRef } from "react";
 import { useCarrosselMultiFrame } from "../../custom-hooks/use-carrossel-multiframe";
 import CarrosselItem from "../carrossel-item/carrossel-item";
 import Breadcrumbs from "../breadcrumbs/breadcrumbs";
@@ -20,8 +20,12 @@ function CarrosselMultiFrame({
 }) {
   const [frame0, frame1, frame2] = [useRef(null), useRef(null), useRef(null)];
   const frames = [frame0, frame1, frame2];
-  const { handlePrevious, handleNext, showSlide, active } =
-    useCarrosselMultiFrame(frames, true);
+  const {
+    handlePrevious,
+    handleNext,
+    showSlide,
+    active,
+  } = useCarrosselMultiFrame(frames, true);
 
   const gameCardsMain = games.map((game) => (
     <CarrosselItem

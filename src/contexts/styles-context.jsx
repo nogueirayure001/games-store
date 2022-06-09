@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import React, { useContext } from "react";
 import { ThemeProvider } from "styled-components";
 import { ColorModeContext } from "./color-mode-context";
 import { colorsDarkMode, colorsLightMode, fonts } from "../styles";

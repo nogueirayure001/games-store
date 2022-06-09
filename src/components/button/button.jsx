@@ -1,3 +1,4 @@
+import React from "react";
 import { CustomButtom } from "./button.styles";
 
 const CUSTOM_BUTTONS = {
@@ -5,6 +6,7 @@ const CUSTOM_BUTTONS = {
   normal: "normal",
   normalDarker: "normalDarker",
   normalDarkerInverted: "normalDarkerInverted",
+  googleColors: "googleColors",
 };
 
 function Button({

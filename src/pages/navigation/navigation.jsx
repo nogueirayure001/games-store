@@ -1,4 +1,4 @@
-import { Fragment, useState, useRef } from "react";
+import React, { Fragment, useState, useRef } from "react";
 import { Outlet, Link } from "react-router-dom";
 import { useClickOutsideCloser } from "../../custom-hooks/use-click-outside-closer";
 import NavFunctionality from "../../components/nav-functionality/nav-functionality";

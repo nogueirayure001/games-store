@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import React, { useContext, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useFetchGame } from "../../../custom-hooks/use-fetch-game";
 import { useFetchGameScreenshots } from "../../../custom-hooks/use-fetch-game-screenshots";
