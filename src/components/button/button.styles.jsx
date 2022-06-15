@@ -60,6 +60,8 @@ const googleColors = css`
 `;
 
 export const CustomButtom = styled.button`
+  ${({ position }) => position && `position: ${position};`}
+  ${({ keepHeight }) => keepHeight && `height: 47px;`}
   text-transform: uppercase;
   ${({ customStyle }) => customStyle === "normal" && normal}
   ${({ customStyle }) => customStyle === "normalDarker" && normalDarker}

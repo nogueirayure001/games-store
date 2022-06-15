@@ -9,8 +9,8 @@ import { AuthBoxContainer, Title, SignUpMessage } from "./auth-box.styles";
 
 function AuthBox({ insideRef, shouldDisplay }) {
   const { user } = useContext(UserContext);
-
   const navigate = useNavigate();
+
   const ToAuthPageHandler = () => navigate("sign-up");
 
   const noUserLoggedIn = (
@@ -33,7 +33,7 @@ function AuthBox({ insideRef, shouldDisplay }) {
       <Title>Hello, {user ? user.displayName : "there"}!</Title>
 
       <Button buttonStyle='normal' onClick={() => SignOutUser()}>
-        log out
+        sign out
       </Button>
     </Fragment>
   );

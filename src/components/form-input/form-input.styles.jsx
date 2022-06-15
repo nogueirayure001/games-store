@@ -1,6 +1,10 @@
 import styled, { css } from "styled-components";
 
 export const FormInputContainer = styled.div`
+  width: 100%;
+`;
+
+export const InputAndLabelContainer = styled.div`
   position: relative;
   width: 100%;
 
@@ -52,4 +56,28 @@ export const FormInputContainer = styled.div`
         }
       `}
   }
+`;
+
+export const ErrorCode = styled.p`
+  padding: 0.25rem;
+  font-size: 0.9rem;
+  text-align: center;
+  color: ${({ theme }) => theme?.colors && theme.colors.secondaryError};
+`;
+
+export const InputGuideList = styled.ul`
+  width: 170px;
+  padding: 0.25rem;
+  margin: 0 auto;
+  list-style: disc inside;
+`;
+
+export const GuideListItem = styled.li`
+  padding: 0.5rem 0.25rem 0.25rem;
+  font-size: 0.9rem;
+
+  color: ${({ theme, match }) =>
+    match && theme?.colors
+      ? theme.colors.secondaryValid
+      : theme.colors.secondaryError};
 `;

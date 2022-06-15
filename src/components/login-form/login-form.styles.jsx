@@ -18,3 +18,10 @@ export const AlternativeAuth = styled.p`
   line-height: 24px;
   text-align: center;
 `;
+
+export const ErrorCode = styled.p`
+  padding: 1rem 0.5rem;
+  font-size: 0.9rem;
+  text-align: center;
+  color: ${({ theme }) => theme?.colors && theme.colors.secondaryError};
+`;

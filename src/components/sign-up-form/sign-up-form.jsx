@@ -1,30 +1,49 @@
 import React, { useState, useRef } from "react";
+import { useNavigate } from "react-router-dom";
+import RenderIf from "../render-if/render-if";
 import Button from "../button/button";
 import FormInput from "../form-input/form-input";
-import { checkMatchedInputs } from "../../utils/helper-functions";
-import { signUpNewUser, SIGNUP_ERRORS } from "../../utils/firebase/auth";
-import { Form, InputFields } from "./sign-up-form.styles";
+import LoadingLittle from "../loading-little/loading-little";
+import {
+  checkMatchedInputs,
+  checkInputsValidity,
+} from "../../utils/helper-functions";
+import { DEFAULT_REGEXP, PASSWORD_GUIDE } from "../../utils/regexp";
+import {
+  signUpNewUser,
+  FIREBASE_SIGNUP_ERRORS,
+} from "../../utils/firebase/auth";
+import { Form, InputFields, ErrorCode } from "./sign-up-form.styles";
+
+const SIGNUP_ERRORS = {
+  ...FIREBASE_SIGNUP_ERRORS,
+  EmailsDoNotMatch: "E-mails do not match",
+  PasswordsDoNotMatch: "Passwords do not match",
+  EmailsAndPasswordsDoNotMatch: `
+  E-mails and passwords do not match
+  `,
+};
+
+const INPUT_PAIRS = [
+  { input: ["email", "confirmEmail"], fieldsLabel: "E-mails" },
+  { input: ["pwd", "confirmPwd"], fieldsLabel: "Passwords" },
+];
 
 const DEFAULT_FIELDS_STATE = {
-  userName: "",
+  username: "",
   email: "",
   confirmEmail: "",
   pwd: "",
   confirmPwd: "",
 };
 
-const INPUT_PAIRS = [
-  ["email", "confirmEmail"],
-  ["pwd", "confirmPwd"],
-];
-
 function SignUpForm() {
   const [fields, setFields] = useState(DEFAULT_FIELDS_STATE);
+  const [submitted, setSubmitted] = useState(false);
   const [errorCode, setErrorCode] = useState(null);
-
   const [loading, setLoading] = useState(false);
-
   const formRef = useRef(null);
+  const navigate = useNavigate();
 
   const fieldChangeHandler = (event) => {
     const { name, value } = event.target;
@@ -32,45 +51,63 @@ function SignUpForm() {
     setFields({ ...fields, [name]: value });
   };
 
-  const clearInputFields = () => {
-    for (const element of formRef.current) {
-      if (element.tagName === "INPUT") {
-        element.value = "";
-      }
-    }
-    setFields(DEFAULT_FIELDS_STATE);
-  };
+  const redirectToHomepage = () => navigate("/");
 
   const signUpNewUserHandler = async (event) => {
     event.preventDefault();
 
-    const inputsMatch = checkMatchedInputs(INPUT_PAIRS, fields);
+    if (!submitted) setSubmitted(true);
 
-    const { email, pwd, userName } = fields;
+    setErrorCode(null);
 
-    if (inputsMatch) {
+    const inputsValid = checkInputsValidity(formRef.current);
+    const { inputsMatch, unmatchedFields } = checkMatchedInputs(
+      INPUT_PAIRS,
+      fields
+    );
+
+    if (inputsValid && inputsMatch) {
+      const { email, pwd, username } = fields;
+
       try {
         setLoading(true);
-        await signUpNewUser(email, pwd, { displayName: userName });
+        await signUpNewUser(email, pwd, { displayName: username });
         setLoading(false);
-        clearInputFields();
+        redirectToHomepage();
       } catch (error) {
         setLoading(false);
-        setErrorCode(error.code);
+        if (Object.hasOwn(SIGNUP_ERRORS, error.code)) {
+          setErrorCode(error.code);
+        }
+      }
+    } else if (inputsValid && !inputsMatch) {
+      if (
+        unmatchedFields.includes("E-mails") &&
+        unmatchedFields.includes("Passwords")
+      ) {
+        setErrorCode("EmailsAndPasswordsDoNotMatch");
+      } else if (unmatchedFields.includes("E-mails")) {
+        setErrorCode("EmailsDoNotMatch");
+      } else if (unmatchedFields.includes("Passwords")) {
+        setErrorCode("PasswordsDoNotMatch");
       }
     }
   };
 
   return (
-    <Form onSubmit={signUpNewUserHandler} ref={formRef}>
+    <Form onSubmit={signUpNewUserHandler} ref={formRef} noValidate>
       <InputFields>
         <FormInput
           label='User Name'
-          id='userName'
-          name='userName'
+          id='username'
+          name='username'
           type='text'
-          shrink={fields.userName.length}
+          shrink={fields.username.length}
           onChange={fieldChangeHandler}
+          pattern={DEFAULT_REGEXP.text}
+          submitted={submitted}
+          errorMessage='Enter a valid username'
+          required
         />
 
         <FormInput
@@ -80,6 +117,10 @@ function SignUpForm() {
           type='email'
           shrink={fields.email.length}
           onChange={fieldChangeHandler}
+          pattern={DEFAULT_REGEXP.email}
+          submitted={submitted}
+          errorMessage='Enter a valid E-mail'
+          required
         />
 
         <FormInput
@@ -89,6 +130,10 @@ function SignUpForm() {
           type='email'
           shrink={fields.confirmEmail.length}
           onChange={fieldChangeHandler}
+          pattern={DEFAULT_REGEXP.email}
+          submitted={submitted}
+          errorMessage='Enter a valid E-mail'
+          required
         />
 
         <FormInput
@@ -98,6 +143,11 @@ function SignUpForm() {
           type='password'
           shrink={fields.pwd.length}
           onChange={fieldChangeHandler}
+          pattern={DEFAULT_REGEXP.password}
+          submitted={submitted}
+          errorMessage='Unsafe password'
+          inputGuide={PASSWORD_GUIDE}
+          required
         />
 
         <FormInput
@@ -107,13 +157,25 @@ function SignUpForm() {
           type='password'
           shrink={fields.confirmPwd.length}
           onChange={fieldChangeHandler}
+          pattern={DEFAULT_REGEXP.password}
+          submitted={submitted}
+          errorMessage='Unsafe password'
+          inputGuide={PASSWORD_GUIDE}
+          required
         />
       </InputFields>
 
-      {errorCode && <p>{SIGNUP_ERRORS[errorCode]}</p>}
+      <RenderIf condition={errorCode}>
+        <ErrorCode>{SIGNUP_ERRORS[errorCode]}</ErrorCode>
+      </RenderIf>
 
-      <Button type='submit' buttonStyle='normal'>
-        {loading ? "loading..." : "sign up"}
+      <Button
+        type='submit'
+        buttonStyle='normal'
+        keepHeight
+        position={"relative"}
+      >
+        {loading ? <LoadingLittle /> : "sign up"}
       </Button>
     </Form>
   );
