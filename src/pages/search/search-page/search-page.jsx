@@ -72,7 +72,7 @@ function SearchPage() {
 
   useEffect(() => {
     setQueryParams({ ...queryParams, search: searchTerm, page: 1 });
-  }, [searchTerm]);
+  }, [queryParams, searchTerm]);
 
   return (
     <SearchPageContainer>
