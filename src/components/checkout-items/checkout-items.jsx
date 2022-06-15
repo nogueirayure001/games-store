@@ -11,7 +11,9 @@ import {
 function CheckoutItems() {
   const { cartItems } = useContext(CartContext);
 
-  const CheckoutCards = cartItems.map((item) => <CheckoutCard item={item} />);
+  const CheckoutCards = cartItems.map((item) => (
+    <CheckoutCard key={item.id} item={item} />
+  ));
 
   return (
     <CheckoutItemsContainer>
