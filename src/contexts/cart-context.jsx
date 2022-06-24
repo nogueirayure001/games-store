@@ -5,6 +5,7 @@ export const CartContext = createContext({
   toggleCartShowing: () => {},
   cartItems: [],
   addToCart: () => {},
+  removeFromCart: () => {},
 });
 
 export function CartContextProvider({ children }) {
