@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import { CartContext } from "../../contexts/cart-context";
-import { CalcSaleValues } from "../../utils/helper-functions";
 import Button from "../button/button";
 import {
   SummaryContainer,
@@ -11,8 +10,8 @@ import {
 } from "./summary.styles";
 
 function Summary() {
-  const { cartItems } = useContext(CartContext);
-  const { price, discount, total } = CalcSaleValues(cartItems);
+  const { price, discount } = useContext(CartContext);
+  const total = price - discount;
 
   return (
     <SummaryContainer>

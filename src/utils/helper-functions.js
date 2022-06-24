@@ -16,9 +16,7 @@ export function CalcSaleValues(cartItems) {
       .toFixed(2)
   );
 
-  const total = price - discount;
-
-  return { price, discount, total };
+  return { price, discount };
 }
 
 export function checkMatchedInputs(matchingPairs, fields) {

@@ -15,7 +15,7 @@ import {
 } from "./checkout-card.styles";
 
 function CheckoutCard({ item }) {
-  const { addToCart, removeFromCart } = useContext(CartContext);
+  const { addToCart, removeFromCart, clearFromCart } = useContext(CartContext);
 
   const navigate = useNavigate();
 
@@ -43,10 +43,7 @@ function CheckoutCard({ item }) {
           <ControlButton onClick={() => addToCart(item)}>&#135;</ControlButton>
         </AmountChanger>
 
-        <RemoveButton
-          buttonStyle='normal'
-          onClick={() => removeFromCart(item, true)}
-        >
+        <RemoveButton buttonStyle='normal' onClick={() => clearFromCart(item)}>
           remove
         </RemoveButton>
       </CardControls>
