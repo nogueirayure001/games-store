@@ -14,7 +14,6 @@ import {
 
 function Cart({ insideRef }) {
   const { cartShowing, cartItems } = useContext(CartContext);
-  console.log(cartItems);
 
   const navigate = useNavigate();
 

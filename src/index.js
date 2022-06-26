@@ -1,5 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { Provider } from "react-redux";
+import { store } from "./store/store";
 import { BrowserRouter } from "react-router-dom";
 import { ColorModeContextProvider } from "./contexts/color-mode-context";
 import { StylesContextProvider } from "./contexts/styles-context";
@@ -9,21 +11,20 @@ import AppRoutes from "./app-routes";
 
 import "./reset.css";
 import "./index.css";
-import { UserContextProvider } from "./contexts/user-context";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <BrowserRouter>
-    <ColorModeContextProvider>
-      <StylesContextProvider>
-        <UserContextProvider>
+  <Provider store={store}>
+    <BrowserRouter>
+      <ColorModeContextProvider>
+        <StylesContextProvider>
           <CartContextProvider>
             <ScreenTypeContextProvider>
               <AppRoutes />
             </ScreenTypeContextProvider>
           </CartContextProvider>
-        </UserContextProvider>
-      </StylesContextProvider>
-    </ColorModeContextProvider>
-  </BrowserRouter>
+        </StylesContextProvider>
+      </ColorModeContextProvider>
+    </BrowserRouter>
+  </Provider>
 );

@@ -1,6 +1,7 @@
-import React, { useContext, useEffect } from "react";
+import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { setCurrentUser } from "./store/user/user.actions";
 import { userStateObserver } from "./utils/firebase/auth";
-import { UserContext } from "./contexts/user-context";
 import { Routes, Route } from "react-router-dom";
 import Navigation from "./pages/navigation/navigation";
 import Homepage from "./pages/homepage/homepage";
@@ -10,15 +11,15 @@ import Checkout from "./pages/checkout/checkout";
 import SignUp from "./pages/sign-up/sign-up";
 
 function AppRoutes() {
-  const { setCurrentUser } = useContext(UserContext);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const unsubscribe = userStateObserver((user) => {
-      setCurrentUser(user);
+      dispatch(setCurrentUser(user));
     });
 
     return unsubscribe;
-  }, [setCurrentUser]);
+  }, []);
 
   return (
     <Routes>

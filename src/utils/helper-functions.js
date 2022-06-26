@@ -44,3 +44,7 @@ export function checkInputsValidity(form) {
 
   return inputsAreValid;
 }
+
+export function createAction(type, payload) {
+  return { type, payload };
+}

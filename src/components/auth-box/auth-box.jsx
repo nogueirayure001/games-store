@@ -1,5 +1,6 @@
-import React, { Fragment, useContext } from "react";
-import { UserContext } from "../../contexts/user-context";
+import React, { Fragment } from "react";
+import { useSelector } from "react-redux";
+import { selectUser } from "../../store/user/user.selectors";
 import { SignOutUser } from "../../utils/firebase/auth";
 import { useNavigate } from "react-router-dom";
 import RenderIf from "../render-if/render-if";
@@ -8,7 +9,7 @@ import LoginForm from "../login-form/login-form";
 import { AuthBoxContainer, Title, SignUpMessage } from "./auth-box.styles";
 
 function AuthBox({ insideRef, shouldDisplay }) {
-  const { user } = useContext(UserContext);
+  const user = useSelector(selectUser);
   const navigate = useNavigate();
 
   const ToAuthPageHandler = () => navigate("sign-up");
