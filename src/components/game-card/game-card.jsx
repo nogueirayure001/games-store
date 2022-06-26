@@ -1,6 +1,7 @@
-import { useState, useContext, useRef } from "react";
+import { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import { CartContext } from "../../contexts/cart-context";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../store/cart/cart.actions";
 import {
   Image,
   GameCardContainer,
@@ -13,13 +14,16 @@ import {
 function GameCard({ game }) {
   const { name, id, background_image } = game;
 
-  const [price] = useState((Math.random() * 60 + 40).toFixed(2));
-
-  const { addToCart } = useContext(CartContext);
-  const addToCartHandler = () => addToCart({ ...game, price });
+  const dispatch = useDispatch();
 
   const navigate = useNavigate();
+
   const addToCartRef = useRef();
+
+  const [price] = useState((Math.random() * 60 + 40).toFixed(2));
+
+  const addToCartHandler = () => dispatch(addToCart({ ...game, price }));
+
   const navigationHandler = (event) => {
     const { target } = event;
     const { current: addToCart } = addToCartRef;

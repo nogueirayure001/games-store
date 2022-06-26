@@ -1,6 +1,7 @@
-import React, { useContext } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
-import { CartContext } from "../../contexts/cart-context";
+import { useSelector } from "react-redux";
+import { selectAll } from "../../store/cart/cart.selectors";
 import Button from "../button/button";
 import {
   CartContainer,
@@ -13,7 +14,7 @@ import {
 } from "./cart.styles";
 
 function Cart({ insideRef }) {
-  const { cartShowing, cartItems } = useContext(CartContext);
+  const { cartShowing, cartItems } = useSelector(selectAll);
 
   const navigate = useNavigate();
 

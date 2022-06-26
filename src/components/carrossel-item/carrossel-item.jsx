@@ -1,6 +1,7 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { CartContext } from "../../contexts/cart-context";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../store/cart/cart.actions";
 import {
   CarrosselItemContainer,
   ItemInfo,
@@ -21,11 +22,11 @@ function CarrosselItem({ game, heightRatio, showInfo = true }) {
 
   const navigate = useNavigate();
 
-  const { addToCart } = useContext(CartContext);
+  const dispatch = useDispatch();
 
   const navigationHandler = () => navigate(`/shop/${id}`);
 
-  const addToCartHandler = () => addToCart({ ...game, price });
+  const addToCartHandler = () => dispatch(addToCart({ ...game, price }));
 
   return (
     <CarrosselItemContainer

@@ -1,6 +1,11 @@
-import React, { useContext } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
-import { CartContext } from "../../contexts/cart-context";
+import { useDispatch } from "react-redux";
+import {
+  addToCart,
+  removeFromCart,
+  clearFromCart,
+} from "../../store/cart/cart.actions";
 import {
   CheckoutCardContainer,
   CardIdentity,
@@ -15,13 +20,18 @@ import {
 } from "./checkout-card.styles";
 
 function CheckoutCard({ item }) {
-  const { addToCart, removeFromCart, clearFromCart } = useContext(CartContext);
-
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const { name, price, quantity, background_image, id } = item;
 
   const navigationHandler = () => navigate(`/shop/${id}`);
+
+  const decrementHandler = () => dispatch(removeFromCart(item));
+
+  const incrementHandler = () => dispatch(addToCart(item));
+
+  const clearCartItemHandler = () => dispatch(clearFromCart(item));
 
   return (
     <CheckoutCardContainer>
@@ -34,16 +44,14 @@ function CheckoutCard({ item }) {
         <Price>$ {price}</Price>
 
         <AmountChanger>
-          <ControlButton onClick={() => removeFromCart(item)}>
-            &#134;
-          </ControlButton>
+          <ControlButton onClick={decrementHandler}>&#134;</ControlButton>
 
           <ItemAmount>{quantity}</ItemAmount>
 
-          <ControlButton onClick={() => addToCart(item)}>&#135;</ControlButton>
+          <ControlButton onClick={incrementHandler}>&#135;</ControlButton>
         </AmountChanger>
 
-        <RemoveButton buttonStyle='normal' onClick={() => clearFromCart(item)}>
+        <RemoveButton buttonStyle='normal' onClick={clearCartItemHandler}>
           remove
         </RemoveButton>
       </CardControls>

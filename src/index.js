@@ -5,7 +5,6 @@ import { store } from "./store/store";
 import { BrowserRouter } from "react-router-dom";
 import { ColorModeContextProvider } from "./contexts/color-mode-context";
 import { StylesContextProvider } from "./contexts/styles-context";
-import { CartContextProvider } from "./contexts/cart-context";
 import { ScreenTypeContextProvider } from "./contexts/screen-type-context";
 import AppRoutes from "./app-routes";
 
@@ -18,11 +17,9 @@ root.render(
     <BrowserRouter>
       <ColorModeContextProvider>
         <StylesContextProvider>
-          <CartContextProvider>
-            <ScreenTypeContextProvider>
-              <AppRoutes />
-            </ScreenTypeContextProvider>
-          </CartContextProvider>
+          <ScreenTypeContextProvider>
+            <AppRoutes />
+          </ScreenTypeContextProvider>
         </StylesContextProvider>
       </ColorModeContextProvider>
     </BrowserRouter>

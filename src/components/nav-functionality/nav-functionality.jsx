@@ -1,6 +1,9 @@
 import React, { Fragment, useContext, useRef, useState } from "react";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { selectCartShowing } from "../../store/cart/cart.selectors";
+import { toggleCartShowing } from "../../store/cart/cart.actions";
 import { ColorModeContext } from "../../contexts/color-mode-context";
-import { CartContext } from "../../contexts/cart-context";
 import { useClickOutsideCloser } from "../../custom-hooks/use-click-outside-closer";
 import Cart from "../cart/cart";
 import {
@@ -17,11 +20,14 @@ import AuthBox from "../auth-box/auth-box";
 
 function NavFunctionality({ isMenuOpen }) {
   const { usingDarkMode, toggleColorMode } = useContext(ColorModeContext);
+  const dispatch = useDispatch();
 
-  const { cartShowing, toggleCartShowing } = useContext(CartContext);
+  const toggleCartHandler = () => dispatch(toggleCartShowing());
+
+  const cartShowing = useSelector(selectCartShowing);
   const cartRef = useRef(null);
   const showCartRef = useRef(null);
-  useClickOutsideCloser(cartShowing, toggleCartShowing, cartRef, showCartRef);
+  useClickOutsideCloser(cartShowing, toggleCartHandler, cartRef, showCartRef);
 
   const [authBoxShowing, setAuthBoxShowing] = useState(false);
   const toggleAuthBoxShowing = () => setAuthBoxShowing(!authBoxShowing);
@@ -59,7 +65,7 @@ function NavFunctionality({ isMenuOpen }) {
             />
           </NavItem>
 
-          <NavItem onClick={toggleCartShowing} ref={showCartRef}>
+          <NavItem onClick={toggleCartHandler} ref={showCartRef}>
             <CartIcon />
           </NavItem>
 

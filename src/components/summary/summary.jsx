@@ -1,5 +1,6 @@
-import React, { useContext } from "react";
-import { CartContext } from "../../contexts/cart-context";
+import React from "react";
+import { useSelector } from "react-redux";
+import { selectAll } from "../../store/cart/cart.selectors";
 import Button from "../button/button";
 import {
   SummaryContainer,
@@ -10,7 +11,7 @@ import {
 } from "./summary.styles";
 
 function Summary() {
-  const { price, discount } = useContext(CartContext);
+  const { price, discount } = useSelector(selectAll);
   const total = price - discount;
 
   return (

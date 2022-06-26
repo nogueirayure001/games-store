@@ -1,8 +1,9 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../../store/cart/cart.actions";
 import { useFetchGame } from "../../../custom-hooks/use-fetch-game";
 import { useFetchGameScreenshots } from "../../../custom-hooks/use-fetch-game-screenshots";
-import { CartContext } from "../../../contexts/cart-context";
 import Button from "../../../components/button/button";
 import GameCarrossel from "../../../components/game-carrossel/game-carrossel";
 import Loading from "../../../components/loading/loading";
@@ -28,14 +29,16 @@ import {
 
 function ShopPage() {
   const { id } = useParams();
+
+  const dispatch = useDispatch();
+
   const game = useFetchGame(id);
+
   const screenshots = useFetchGameScreenshots(id);
 
   const [price] = useState((Math.random() * 60 + 40).toFixed(2));
 
-  const { addToCart } = useContext(CartContext);
-
-  const addToCartHandler = () => addToCart({ ...game, price });
+  const addToCartHandler = () => dispatch(addToCart({ ...game, price }));
 
   if (!game) {
     return <Loading />;
