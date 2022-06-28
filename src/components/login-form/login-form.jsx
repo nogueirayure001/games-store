@@ -94,7 +94,7 @@ function LoginForm() {
       </RenderIf>
 
       <Button type='submit' buttonStyle='normal' position='relative' keepHeight>
-        {loading ? <LoadingLittle /> : "sing in"}
+        {loading ? <LoadingLittle /> : "sign in"}
       </Button>
 
       <AlternativeAuth>
