@@ -3,12 +3,12 @@ import { useDispatch } from "react-redux";
 import { setCurrentUser } from "./store/user/user.actions";
 import { userStateObserver } from "./utils/firebase/auth";
 import { Routes, Route } from "react-router-dom";
-import Navigation from "./pages/navigation/navigation";
-import Homepage from "./pages/homepage/homepage";
-import Shop from "./pages/shop/shop";
-import Search from "./pages/search/search";
-import Checkout from "./pages/checkout/checkout";
-import SignUp from "./pages/sign-up/sign-up";
+import Navigation from "./routes/navigation/navigation";
+import Homepage from "./routes/homepage/homepage";
+import Shop from "./routes/shop/shop";
+import Search from "./routes/search/search";
+import Checkout from "./routes/checkout/checkout";
+import SignUp from "./routes/sign-up/sign-up";
 
 function AppRoutes() {
   const dispatch = useDispatch();
