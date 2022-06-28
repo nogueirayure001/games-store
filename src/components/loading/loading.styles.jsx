@@ -12,6 +12,7 @@ export const LoadingContainer = styled.div`
   align-items: center;
   gap: 16px;
   background-color: ${({ theme }) => theme?.colors && theme.colors.neutral2};
+  z-index: 9999;
 `;
 
 export const Title = styled.h2`
