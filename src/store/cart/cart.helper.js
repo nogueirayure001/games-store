@@ -47,20 +47,9 @@ export const clearItemFromCart = (cartItems, itemToClear) => {
 };
 
 function CalcSaleValues(cartItems) {
-  const price = cartItems.reduce(
-    (sum, { price, quantity }) => sum + price * quantity,
-    0
-  );
+  const price = cartItems;
 
-  const discount = Number(
-    cartItems
-      .reduce(
-        (sum, { price, quantity, discount = 20 }) =>
-          sum + (price * quantity * discount) / 100,
-        0
-      )
-      .toFixed(2)
-  );
+  const discount = Number(cartItems.toFixed(2));
 
   return { price, discount };
 }
@@ -70,11 +59,7 @@ export function getUpdateCartPayload(store, targetItem, callback) {
 
   const newCartItems = callback(cartItems, targetItem);
 
-  const { price, discount } = CalcSaleValues(newCartItems);
-
   return {
     cartItems: newCartItems,
-    price,
-    discount,
   };
 }

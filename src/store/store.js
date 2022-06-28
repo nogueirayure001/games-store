@@ -1,8 +1,7 @@
 import { compose, applyMiddleware, createStore } from "redux";
-import { persistStore, persistReducer } from "redux-persist";
-import storage from "redux-persist/lib/storage";
+import { persistStore } from "redux-persist";
 import logger from "redux-logger";
-import { rootReducer } from "./root.reducer";
+import { persistedReducer } from "./root.reducer";
 
 const middlewares = [process.env.NODE_ENV === "development" && logger].filter(
   Boolean
@@ -15,14 +14,6 @@ const composeEnhancer =
   compose;
 
 const enhancers = composeEnhancer(applyMiddleware(...middlewares));
-
-const persistConfigs = {
-  key: "root",
-  storage,
-  blacklist: ["user"],
-};
-
-const persistedReducer = persistReducer(persistConfigs, rootReducer);
 
 export const store = createStore(persistedReducer, enhancers);
 
