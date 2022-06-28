@@ -1,10 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import {
-  selectAll,
-  selectPrice,
-  selectDiscount,
-} from "../../store/cart/cart.selectors";
+import { selectAll } from "../../store/cart/cart.selectors";
 import Button from "../button/button";
 import {
   SummaryContainer,

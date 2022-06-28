@@ -1,10 +1,11 @@
-import React, { useContext } from "react";
+import React from "react";
+import { useSelector } from "react-redux";
+import { selectUsingDarkMode } from "../store/color-mode/color-mode.selectors";
 import { ThemeProvider } from "styled-components";
-import { ColorModeContext } from "./color-mode-context";
 import { colorsDarkMode, colorsLightMode, fonts } from "../styles";
 
 export function StylesContextProvider({ children }) {
-  const { usingDarkMode } = useContext(ColorModeContext);
+  const usingDarkMode = useSelector(selectUsingDarkMode);
 
   const theme = {
     colors: usingDarkMode ? colorsDarkMode : colorsLightMode,

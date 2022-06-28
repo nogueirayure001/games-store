@@ -46,14 +46,6 @@ export const clearItemFromCart = (cartItems, itemToClear) => {
   return newCartItems;
 };
 
-function CalcSaleValues(cartItems) {
-  const price = cartItems;
-
-  const discount = Number(cartItems.toFixed(2));
-
-  return { price, discount };
-}
-
 export function getUpdateCartPayload(store, targetItem, callback) {
   const { cartItems } = store.getState().cart;
 

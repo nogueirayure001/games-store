@@ -1,0 +1,3 @@
+export const COLOR_MODE_ACTIONS = {
+  TOGGLE_COLOR_MODE: "colorMode/TOGGLE_COLOR_MODE",
+};

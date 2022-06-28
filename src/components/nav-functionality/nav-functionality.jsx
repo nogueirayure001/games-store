@@ -1,9 +1,10 @@
-import React, { Fragment, useContext, useRef, useState } from "react";
+import React, { Fragment, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { selectCartShowing } from "../../store/cart/cart.selectors";
+import { selectUsingDarkMode } from "../../store/color-mode/color-mode.selectors";
 import { toggleCartShowing } from "../../store/cart/cart.actions";
-import { ColorModeContext } from "../../contexts/color-mode-context";
+import { toggleColorMode } from "../../store/color-mode/color-mode.actions";
 import { useClickOutsideCloser } from "../../custom-hooks/use-click-outside-closer";
 import Cart from "../cart/cart";
 import {
@@ -19,8 +20,10 @@ import {
 import AuthBox from "../auth-box/auth-box";
 
 function NavFunctionality({ isMenuOpen }) {
-  const { usingDarkMode, toggleColorMode } = useContext(ColorModeContext);
   const dispatch = useDispatch();
+  const usingDarkMode = useSelector(selectUsingDarkMode);
+
+  const toggleColorModeHandler = () => dispatch(toggleColorMode());
 
   const toggleCartHandler = () => dispatch(toggleCartShowing());
 
@@ -61,7 +64,7 @@ function NavFunctionality({ isMenuOpen }) {
           <NavItem>
             <ColorModeToggler
               checked={usingDarkMode}
-              onChange={toggleColorMode}
+              onChange={toggleColorModeHandler}
             />
           </NavItem>
 

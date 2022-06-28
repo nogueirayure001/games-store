@@ -29,14 +29,3 @@ export const selectAll = createSelector(
     discount,
   })
 );
-
-// export function selectAll(state) {
-//   const { cartItems, cartShowing } = state.cart;
-
-//   return {
-//     cartItems,
-//     cartShowing,
-//     price: selectPrice(cartItems),
-//     discount: selectDiscount(cartItems),
-//   };
-// }
